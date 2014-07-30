@@ -1,0 +1,47 @@
+<div class="content">
+    <h2>Обратная связь</h2>
+    <form action="windows/success.html" method="post">
+        <div class="form-field">
+            <div class="form-label">Назначение сообщения <span>*</span></div>
+            <div class="form-select form-select-1">
+                <select name="messageto" id="messageto" data-placeholder="Направить предложение">
+                    <option value=""></option>
+                    <option value="1">директору</option>
+                    <option value="2">секретарю</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="form-col">
+                <div class="form-label">Ваше имя <span>*</span></div>
+                <div class="form-input form-input-2"><input type="text" name="name" value="" class="required" /></div>
+                <div class="form-hint">Например: Василий Иванович</div>
+            </div>
+            <div class="form-col">
+                <div class="form-label">Ваш телефон <span>*</span></div>
+                <div class="form-input form-input-3"><input type="text" name="phone" value="" class="required" /></div>
+                <div class="form-hint">Например: +74951234567</div>
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="form-label">Ваш e-mail <span>*</span></div>
+            <div class="form-input"><input type="text" name="email" value="" class="required email" /></div>
+            <div class="form-hint">Например: info@mail.com</div>
+        </div>
+        <div class="form-field">
+            <div class="form-label">Сообщение <span>*</span></div>
+            <div class="form-input"><input type="text" name="theme" value="" class="required" placeholder="Тема сообщения" /></div>
+            <div class="form-input"><textarea name="text" rows="5" cols="10" class="required" placeholder="Текст сообщения"></textarea></div>
+        </div>
+        <div class="form-submit">
+            <input type="submit" value="Отправить" />
+        </div>
+    </form>
+    <div class="loading">
+        <div class="loading-bg"></div>
+        <div class="loading-inner">
+            <div class="loading-img"></div>
+            <div class="loading-text">Отправка данных</div>
+        </div>
+    </div>
+</div>

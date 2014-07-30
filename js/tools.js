@@ -65,7 +65,7 @@
 
             $.extend($.validator.messages, {
                 required: '— Не введен текст сообщения',
-                email: '- Введен некорректный e-mail'
+                email: '— Введен некорректный e-mail'
             });
 
             $('.form-checkbox span input:checked').parent().addClass('checked');
@@ -91,7 +91,17 @@
             });
 
             $('form').each(function() {
-                $(this).validate();
+                $(this).validate({
+                    ignore: [],
+                    rules: {
+                        city: {required: true},
+                        district: {required: true}
+                    },
+                    messages: {
+                        city: {required: '— Не выбрана опция'},
+                        district: {required: '— Не выбрана опция'}
+                    }
+                });
             });
         }
 
@@ -274,6 +284,105 @@
             e.preventDefault();
         });
 
+        // обратная связь
+        $('.subheader-feedback-link a').click(function(e) {
+            $.ajax({
+                url: $(this).attr('href'),
+                dataType: 'html',
+                cache: false
+            }).done(function(html) {
+                windowOpen(html);
+
+                $.Placeholder.init({color : '#393939'});
+
+                $.extend($.validator.messages, {
+                    required: 'Не введен текст сообщения —',
+                    email: 'Введен некорректный e-mail —'
+                });
+
+                $('.window .form-select select').chosen({disable_search: true});
+
+                $('.window form').validate({
+                    ignore: [],
+                    rules: {
+                        messageto: {required: true}
+                    },
+                    messages: {
+                        messageto: {required: 'Не выбрана опция —'}
+                    },
+                    submitHandler: function(form) {
+                        $('.window .loading').show();
+                        $.ajax({
+                            url: $(form).attr('action'),
+                            dataType: 'html',
+                            cache: false
+                        }).done(function(html) {
+                            windowClose();
+                            windowOpen(html);
+                        });
+                    }
+                });
+            });
+
+            e.preventDefault();
+        });
+
     });
+
+    // открытие окна
+    function windowOpen(contentWindow) {
+        var windowWidth     = $(window).width();
+        var windowHeight    = $(window).height();
+        var curScrollTop    = $(window).scrollTop();
+        var curScrollLeft   = $(window).scrollLeft();
+
+        $('body').css({'width': windowWidth, 'height': windowHeight, 'overflow': 'hidden'});
+        $(window).scrollTop(0);
+        $('.wrapper').css({'top': -curScrollTop});
+        $('.wrapper').data('scrollTop', curScrollTop);
+
+        $('body').append('<div class="window"><div class="window-overlay"></div><div class="window-container"><div class="window-content">' + contentWindow + '<a href="#" class="window-close"></a></div></div></div>')
+
+        if ($('.window-container').width() > windowWidth - 40) {
+            $('.window-container').css({'margin-left': 20, 'left': 'auto'});
+            $('.window-overlay').width($('.window-container').width() + 40);
+        } else {
+            $('.window-container').css({'margin-left': -$('.window-container').width() / 2});
+        }
+
+        if ($('.window-container').height() > windowHeight - 40) {
+            $('.window-container').css({'margin-top': 20, 'top': 'auto'});
+            $('.window-overlay').height($('.window-container').height() + 40);
+        } else {
+            $('.window-container').css({'margin-top': -$('.window-container').height() / 2});
+        }
+
+        $('.window-overlay').click(function() {
+            windowClose();
+        });
+
+        $('.window-close').click(function(e) {
+            windowClose();
+            e.preventDefault();
+        });
+
+        $('body').bind('keyup', keyUpBody);
+    }
+
+    // обработка Esc после открытия окна
+    function keyUpBody(e) {
+        if (e.keyCode == 27) {
+            windowClose();
+        }
+    }
+
+    // закрытие окна
+    function windowClose() {
+        $('body').unbind('keyup', keyUpBody);
+        $('.window').remove();
+        $('.wrapper').css({'top': 'auto', 'left': 'auto'});
+        $('body').css({'width': 'auto', 'height': '100%', 'overflow': 'visible'});
+        $(window).scrollTop($('.wrapper').data('scrollTop'));
+    }
 
 })(jQuery);
