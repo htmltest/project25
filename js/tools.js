@@ -332,6 +332,9 @@
             $('nav').click(function() {
                 $(this).toggleClass('open');
             })
+            $('.side-menu').click(function() {
+                $(this).toggleClass('open');
+            })
         }
 
     });

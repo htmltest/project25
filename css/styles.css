@@ -305,6 +305,24 @@ nav ul li.active a {background:#1ab157}
 .slider-all a:hover {background:#f66b1f}
 .slider-all a:active {background:#d45916}
 
+.team-main {width:100%}
+.team-main:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.team-photo {float:left; line-height:0; width:140px; position:relative}
+.team-photo img {position:relative; -moz-border-radius:70px; -webkit-border-radius:70px; border-radius:70px; behavior:url(./js/PIE.htc)}
+.team-container {margin-left:160px}
+.team-container h3 {margin:0; padding:13px 0 0 0}
+.team-post {font-size:.9em}
+.team-contacts {font-size:.9em; margin:1em 0 0 0}
+.team-contacts p {margin:0}
+.team-contacts a {text-decoration:none}
+.team-contacts a:hover {text-decoration:underline}
+.team-time {font-size:.9em; margin:1em 0 0 0}
+.team-detail {margin:1em 0 0 160px; font-size:.9em; color:#808080}
+.team-row {width:100%; margin:2em 0}
+.team-row:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.team-col {float:right; width:340px}
+.team-col:first-child {float:left; width:340px}
+
 footer {background:#085f3d}
 .footer-inner {width:940px; margin:0 auto}
 .footer-top {width:100%}
@@ -356,9 +374,6 @@ footer {background:#085f3d}
 .window .content {float:none; width:460px; padding:29px 40px 36px 40px}
 .window .content h2 {margin-top:0}
 
-body.no-image img {visibility:hidden}
-body.no-image * {background-image:none !important}
-
 @media (max-width:320px) {
     html {min-width:320px}
 
@@ -392,11 +407,17 @@ body.no-image * {background-image:none !important}
 
     .subheader {display:none}
 
-    .container {width:300px}
+    .container {width:300px; position:relative}
 
-    .side {display: none}
+    .side {float:none; position:absolute; z-index:2; left:-10px; top:5px; padding:0; width:38px; height:35px}
+    .side-menu {width:38px; height:35px; background:url(../images/side-menu-mini.png); position:relative}
+    .side-menu ul {position:absolute; display:none; white-space:nowrap; left:38px; top:0; background:#fff; -webkit-box-shadow:1px 1px 5px rgba(0, 0, 0, .75); -moz-box-shadow:1px 1px 5px rgba(0, 0, 0, .75); box-shadow:1px 1px 5px rgba(0, 0, 0, .75); -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; behavior:url(./js/PIE.htc)}
+    .side-menu.open ul {display:block}
+    .side-menu ul li a {margin:0}
+    .side-item {display:none}
 
     .content {width:100%; float:none}
+    .content h1 {margin-left:48px}
     .content ul li {background:url(../images/li-mini.png) no-repeat left .5em}
     .content ul li ul li {background:url(../images/lili-mini.png) no-repeat left .5em}
     .content table {width:auto; overflow:auto}
@@ -470,4 +491,14 @@ body.no-image * {background-image:none !important}
     .main-news-ctrl {display:none}
     .main-news-all {display:block}
     .main-news-all a {display:block; text-align:center; padding:8px 0 10px 0; font-size:1.2em}
+
+    .team-detail {margin-left:0; display:none}
+    .team-main .team-detail {display:block}
+    .team-row {margin:0}
+    .team-col {float:none; width:100%; margin:2em 0}
+    .team-col:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+    .team-col:first-child {float:none; width:100%}
 }
+
+body.no-image img {visibility:hidden}
+body.no-image * {background-image:none !important}
