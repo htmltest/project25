@@ -285,7 +285,7 @@
         });
 
         // обратная связь
-        $('.subheader-feedback-link a').click(function(e) {
+        $('.subheader-feedback-link a, .footer-feedback-link a').click(function(e) {
             $.ajax({
                 url: $(this).attr('href'),
                 dataType: 'html',
@@ -326,6 +326,13 @@
 
             e.preventDefault();
         });
+
+        // мобильная версия
+        if ($(window).width() < 321) {
+            $('nav').click(function() {
+                $(this).toggleClass('open');
+            })
+        }
 
     });
 
