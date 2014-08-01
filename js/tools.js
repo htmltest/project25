@@ -327,6 +327,64 @@
             e.preventDefault();
         });
 
+        // подгрузка новостей
+        $('.content').on('click', '.news-more a', function(e) {
+            $('.news').data('textLink', $('.news-more a').html());
+            $('.news-more').html('ЗАГРУЗКА...');
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('href'),
+                dataType: 'html',
+                cache: false
+            }).done(function(html) {
+                $('.news').append(html);
+                if ($('.news .news-more').length > 0) {
+                    $('.news-more').html('<a href="' + $('.news .news-more a').attr('href') + '">' + $('.news').data('textLink') + '</a>');
+                    $('.news .news-more').remove();
+                } else {
+                    $('.news-more').remove();
+                }
+            });
+
+            e.preventDefault();
+        });
+
+        // слайдер в мероприятиях
+        $('.events-slider').each(function() {
+            var curSlider = $(this);
+            curSlider.data('disableAnimation', true);
+
+            var curPages = Math.ceil(curSlider.find('li').length);
+            if (curPages > 1) {
+                var newHTML = '';
+                for (var i = 0; i < curPages; i++) {
+                    newHTML += '<a href="#"></a>';
+                }
+                $('.events-slider-item-ctrl').html(newHTML);
+                $('.events-slider-item-ctrl').each(function() {
+                    var curIndex = $('.events-slider-item-ctrl').index($(this));
+                    $(this).find('a').eq(curIndex).addClass('active');
+                });
+            }
+
+            curSlider.find('ul').width(curSlider.find('li:first').width() * curSlider.find('li').length);
+        });
+
+        $('.events-slider').on('click', '.events-slider-item-ctrl a', function(e) {
+            var curSlider = $('.events-slider');
+
+            if (curSlider.data('disableAnimation')) {
+                var curIndex = $(this).parents().filter('.events-slider-item-ctrl').find('a').index($(this));
+
+                curSlider.data('disableAnimation', false);
+                curSlider.find('ul').animate({'left': -curIndex * curSlider.find('li:first').width()}, function() {
+                    curSlider.data('disableAnimation', true);
+                });
+            }
+
+            e.preventDefault();
+        });
+
         // мобильная версия
         if ($(window).width() < 321) {
             $('nav').click(function() {
