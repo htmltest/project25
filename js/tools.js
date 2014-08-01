@@ -393,6 +393,142 @@
             $('.side-menu').click(function() {
                 $(this).toggleClass('open');
             })
+        } else {
+            // экскурсии
+            function resizeTours() {
+                $('.tours').each(function() {
+                    var curBlock = $(this);
+                    curBlock.find('.tour-anonce, .tour-wrap').css({'min-height': 0});
+                    curBlock.find('.tour:nth-child(4n)').each(function() {
+                        var curItem   = $(this);
+                        var curIndex  = curBlock.find('.tour').index(curItem);
+                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+                        var firstItem = curBlock.find('.tour').eq(curIndex - 2);
+                        var zeroItem  = curBlock.find('.tour').eq(curIndex - 3);
+
+                        var curHeight = curItem.find('.tour-anonce').height();
+
+                        if (prevItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-anonce').height();
+                        }
+
+                        if (firstItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = firstItem.find('.tour-anonce').height();
+                        }
+
+                        if (zeroItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = zeroItem.find('.tour-anonce').height();
+                        }
+
+                        curItem.find('.tour-anonce').css({'min-height': curHeight});
+                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
+                        firstItem.find('.tour-anonce').css({'min-height': curHeight});
+                        zeroItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                        var curHeight = curItem.find('.tour-wrap').height();
+
+                        if (prevItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-wrap').height();
+                        }
+
+                        if (firstItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = firstItem.find('.tour-wrap').height();
+                        }
+
+                        if (zeroItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = zeroItem.find('.tour-wrap').height();
+                        }
+
+                        curItem.find('.tour-wrap').css({'min-height': curHeight});
+                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                        firstItem.find('.tour-wrap').css({'min-height': curHeight});
+                        zeroItem.find('.tour-wrap').css({'min-height': curHeight});
+                    });
+
+                    if (curBlock.find('.tour').length % 4 == 3) {
+                        var curItem   = curBlock.find('.tour:last');
+                        var curIndex  = curBlock.find('.tour').index(curItem);
+                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+                        var firstItem = curBlock.find('.tour').eq(curIndex - 2);
+
+                        var curHeight = curItem.find('.tour-anonce').height();
+
+                        if (prevItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-anonce').height();
+                        }
+
+                        if (firstItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = firstItem.find('.tour-anonce').height();
+                        }
+
+                        curItem.find('.tour-anonce').css({'min-height': curHeight});
+                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
+                        firstItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                        var curHeight = curItem.find('.tour-wrap').height();
+
+                        if (prevItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-wrap').height();
+                        }
+
+                        if (firstItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = firstItem.find('.tour-wrap').height();
+                        }
+
+                        curItem.find('.tour-wrap').css({'min-height': curHeight});
+                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                        firstItem.find('.tour-wrap').css({'min-height': curHeight});
+                    }
+
+                    if (curBlock.find('.tour').length % 4 == 2) {
+                        var curItem   = curBlock.find('.tour:last');
+                        var curIndex  = curBlock.find('.tour').index(curItem);
+                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+
+                        var curHeight = curItem.find('.tour-anonce').height();
+
+                        if (prevItem.find('.tour-anonce').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-anonce').height();
+                        }
+
+                        curItem.find('.tour-anonce').css({'min-height': curHeight});
+                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                        var curHeight = curItem.find('.tour-wrap').height();
+
+                        if (prevItem.find('.tour-wrap').height() > curHeight) {
+                            curHeight = prevItem.find('.tour-wrap').height();
+                        }
+
+                        curItem.find('.tour-wrap').css({'min-height': curHeight});
+                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                    }
+                });
+            }
+
+            $('.content').on('click', '.tours-more a', function(e) {
+                $('.tours').data('textLink', $('.tours-more a').html());
+                $('.tours-more').html('ЗАГРУЗКА...');
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('href'),
+                    dataType: 'html',
+                    cache: false
+                }).done(function(html) {
+                    $('.tours-list').append(html);
+                    resizeTours();
+                    if ($('.tours .tours-more').length > 0) {
+                        $('.tours-more').html('<a href="' + $('.tours .tours-more a').attr('href') + '">' + $('.tours').data('textLink') + '</a>');
+                        $('.tours .tours-more').remove();
+                    } else {
+                        $('.tours-more').remove();
+                    }
+                });
+
+                e.preventDefault();
+            });
+
+            $(window).load(resizeTours);
         }
 
     });

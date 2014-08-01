@@ -387,8 +387,10 @@ nav ul li.active a {background:#1ab157}
 .events-item-place {float:left; padding:0 0 0 17px; margin:0 0 0 34px; background:url(../images/events-item-place.png) no-repeat left center}
 
 .events-detail-info {width:100%; font-size:1.7em; line-height:1.3em; margin:1em 0 1.5em 0; text-align:center}
-.events-detail-date {display:inline-block; vertical-align:middle; padding:0 0 0 30px; background:url(../images/events-detail-date.png) no-repeat left center}
-.events-detail-place {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 0 0 30px; background:url(../images/events-detail-place.png) no-repeat left center}
+.events-detail-date {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 15px; background:url(../images/events-detail-date.png) no-repeat left center}
+.events-detail-place {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 15px; background:url(../images/events-detail-place.png) no-repeat left center}
+.events-detail-length {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 15px; background:url(../images/events-detail-length.png) no-repeat left center}
+.events-detail-author {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 15px; background:url(../images/events-detail-author.png) no-repeat left center}
 
 .map-wrap {width:100%; margin:2em 0 -151px 0; position:relative; overflow:hidden}
 .map {width:100%; height:493px; position:relative}
@@ -399,6 +401,30 @@ nav ul li.active a {background:#1ab157}
 .events-back a span {font-family:arial, helvetica, sans-serif}
 .events-back a:hover {background:#f66b1f}
 .events-back a:active {background:#d45916}
+
+.tours {width:940px; position:relative; overflow:hidden}
+.tours-list {width:940px; position:relative; margin:0 0 0 -1px}
+.tours-list:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.tour {float:left; border-bottom:1px solid #e5f3ed; width:235px; padding:35px 0}
+.tour-wrap {border-left:1px solid #e5f3ed; padding:0 20px}
+.tours-list-end {position:relative; height:1px; background:#fff; margin:-1px 0 0 0}
+.tour-photo {width:154px; margin:0 auto; position:relative}
+.tour-photo a {text-decoration:none; color:#fff; font:1.3em/1.2em HelveticaNeueCyrRoman, sans-serif}
+.tour-photo img {position:relative; -moz-border-radius:77px; -webkit-border-radius:77px; border-radius:77px; behavior:url(./js/PIE.htc)}
+.tour-photo div {display:table; position:absolute; left:0; top:0}
+.tour-photo div span {display:table-cell; width:154px; height:154px; text-align:center; vertical-align:middle}
+.tour-name {font:1em/1.3em HelveticaNeueCyrRoman, sans-serif; padding:40px 0 0 0}
+.tour-name a {text-decoration:none}
+.tour-name a:hover {text-decoration:underline}
+.tour-anonce-text {font-size:.9em; margin:1em 0 0 0}
+.tour-info {margin:1.5em 0 0 0; font:.9em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
+.tour-info a {color:#f6861f}
+.tour-info-place {padding:0 0 0 20px; background:url(../images/tour-info-place.png) no-repeat left center}
+.tour-info-length {padding:0 0 0 20px; margin:.9em 0 0 0; background:url(../images/tour-info-length.png) no-repeat left center}
+.tours-more {text-align:center; padding:20px 0 0 0}
+.tours-more a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; background:#f6861f; font-size:1.2em; font-family:HelveticaNeueCyrRoman, sans-serif; padding:8px 23px 10px 23px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; behavior:url(./js/PIE.htc)}
+.tours-more a:hover {background:#f66b1f}
+.tours-more a:active {background:#d45916}
 
 footer {background:#085f3d}
 .footer-inner {width:940px; margin:0 auto}
@@ -602,8 +628,16 @@ footer {background:#085f3d}
     .events-slider-item-ctrl a.active {background:#fff}
 
     .events-back  {display:none}
-    .events-detail-info {font-size:1em; line-height:2em; text-align:left}
-    .events-detail-place {margin:0 0 0 20px}
+    .events-detail-info {width:100%; font-size:1em; line-height:2em; text-align:left}
+    .events-detail-info:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+    .events-detail-info div {margin:0 30px 0 0; display:block; float:left; white-space:nowrap}
+
+    .tours {width:100%}
+    .tours-list {width:100%; margin:0}
+    .tour {float:none; width:auto}
+    .tour-wrap {border-left:none}
+    .tours-list-end {display:none}
+    .tours-more a {display:block; width:100%; padding-left:0; padding-right:0}
 }
 
 body.no-image img {visibility:hidden}
