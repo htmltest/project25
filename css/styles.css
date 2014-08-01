@@ -394,6 +394,7 @@ nav ul li.active a {background:#1ab157}
 
 .map-wrap {width:100%; margin:2em 0 -151px 0; position:relative; overflow:hidden}
 .map {width:100%; height:493px; position:relative}
+.map-contacts {height:670px}
 .map-bottom {position:absolute; left:0; bottom:0; width:100%; height:151px; background:url(../images/map-bottom.png) no-repeat center top}
 
 .events-back {text-align:center; position:relative; padding:30px 0 0 0}
@@ -425,6 +426,15 @@ nav ul li.active a {background:#1ab157}
 .tours-more a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; background:#f6861f; font-size:1.2em; font-family:HelveticaNeueCyrRoman, sans-serif; padding:8px 23px 10px 23px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; behavior:url(./js/PIE.htc)}
 .tours-more a:hover {background:#f66b1f}
 .tours-more a:active {background:#d45916}
+
+.page-404 {width:662px; margin:0 auto -30px auto; padding:40px 0 0 0; position:relative}
+.page-404-img {line-height:0}
+.page-404-img img {width:100%}
+.page-404-title {font:2.6em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f; text-align:center; margin:2em 0 0 0}
+.page-404-text {font-size:1.3em; line-height:1em; text-align:center; padding:10px 0 0 0}
+
+.contacts-text {font:1.3em/1.3em HelveticaNeueCyrRoman, sans-serif; text-align:center}
+.contacts-text strong {font-weight:normal; font-family:HelveticaNeueCyrMedium, sans-serif}
 
 footer {background:#085f3d}
 .footer-inner {width:940px; margin:0 auto}
@@ -615,6 +625,7 @@ footer {background:#085f3d}
 
     .container-news-detail .content h1 {font-size:1.7em; line-height:1em; margin-left:0; text-align:left}
     .news-detail-date {font-size:1em}
+    .container-news-detail .content h1.tours-title {text-align:center}
 
     .events-slider-container {width:280px}
     .events-slider-container ul li {width:280px}
@@ -638,6 +649,10 @@ footer {background:#085f3d}
     .tour-wrap {border-left:none}
     .tours-list-end {display:none}
     .tours-more a {display:block; width:100%; padding-left:0; padding-right:0}
+
+    .page-404 {width:276px; padding:70px 0 0 0}
+    .page-404-title {font-size:1.7em}
+    .page-404-text {padding:28px 0 0 0}
 }
 
 body.no-image img {visibility:hidden}
