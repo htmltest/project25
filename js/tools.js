@@ -385,6 +385,142 @@
             e.preventDefault();
         });
 
+        // экскурсии
+        function resizeTours() {
+            $('.tours').each(function() {
+                var curBlock = $(this);
+                curBlock.find('.tour-anonce, .tour-wrap').css({'min-height': 0});
+                curBlock.find('.tour:nth-child(4n)').each(function() {
+                    var curItem   = $(this);
+                    var curIndex  = curBlock.find('.tour').index(curItem);
+                    var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+                    var firstItem = curBlock.find('.tour').eq(curIndex - 2);
+                    var zeroItem  = curBlock.find('.tour').eq(curIndex - 3);
+
+                    var curHeight = curItem.find('.tour-anonce').height();
+
+                    if (prevItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-anonce').height();
+                    }
+
+                    if (firstItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = firstItem.find('.tour-anonce').height();
+                    }
+
+                    if (zeroItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = zeroItem.find('.tour-anonce').height();
+                    }
+
+                    curItem.find('.tour-anonce').css({'min-height': curHeight});
+                    prevItem.find('.tour-anonce').css({'min-height': curHeight});
+                    firstItem.find('.tour-anonce').css({'min-height': curHeight});
+                    zeroItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                    var curHeight = curItem.find('.tour-wrap').height();
+
+                    if (prevItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-wrap').height();
+                    }
+
+                    if (firstItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = firstItem.find('.tour-wrap').height();
+                    }
+
+                    if (zeroItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = zeroItem.find('.tour-wrap').height();
+                    }
+
+                    curItem.find('.tour-wrap').css({'min-height': curHeight});
+                    prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                    firstItem.find('.tour-wrap').css({'min-height': curHeight});
+                    zeroItem.find('.tour-wrap').css({'min-height': curHeight});
+                });
+
+                if (curBlock.find('.tour').length % 4 == 3) {
+                    var curItem   = curBlock.find('.tour:last');
+                    var curIndex  = curBlock.find('.tour').index(curItem);
+                    var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+                    var firstItem = curBlock.find('.tour').eq(curIndex - 2);
+
+                    var curHeight = curItem.find('.tour-anonce').height();
+
+                    if (prevItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-anonce').height();
+                    }
+
+                    if (firstItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = firstItem.find('.tour-anonce').height();
+                    }
+
+                    curItem.find('.tour-anonce').css({'min-height': curHeight});
+                    prevItem.find('.tour-anonce').css({'min-height': curHeight});
+                    firstItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                    var curHeight = curItem.find('.tour-wrap').height();
+
+                    if (prevItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-wrap').height();
+                    }
+
+                    if (firstItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = firstItem.find('.tour-wrap').height();
+                    }
+
+                    curItem.find('.tour-wrap').css({'min-height': curHeight});
+                    prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                    firstItem.find('.tour-wrap').css({'min-height': curHeight});
+                }
+
+                if (curBlock.find('.tour').length % 4 == 2) {
+                    var curItem   = curBlock.find('.tour:last');
+                    var curIndex  = curBlock.find('.tour').index(curItem);
+                    var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
+
+                    var curHeight = curItem.find('.tour-anonce').height();
+
+                    if (prevItem.find('.tour-anonce').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-anonce').height();
+                    }
+
+                    curItem.find('.tour-anonce').css({'min-height': curHeight});
+                    prevItem.find('.tour-anonce').css({'min-height': curHeight});
+
+                    var curHeight = curItem.find('.tour-wrap').height();
+
+                    if (prevItem.find('.tour-wrap').height() > curHeight) {
+                        curHeight = prevItem.find('.tour-wrap').height();
+                    }
+
+                    curItem.find('.tour-wrap').css({'min-height': curHeight});
+                    prevItem.find('.tour-wrap').css({'min-height': curHeight});
+                }
+            });
+        }
+
+        $('.content').on('click', '.tours-more a', function(e) {
+            $('.tours').data('textLink', $('.tours-more a').html());
+            $('.tours-more').html('ЗАГРУЗКА...');
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('href'),
+                dataType: 'html',
+                cache: false
+            }).done(function(html) {
+                $('.tours-list').append(html);
+                if ($(window).width() > 320) {
+                    resizeTours();
+                }
+                if ($('.tours .tours-more').length > 0) {
+                    $('.tours-more').html('<a href="' + $('.tours .tours-more a').attr('href') + '">' + $('.tours').data('textLink') + '</a>');
+                    $('.tours .tours-more').remove();
+                } else {
+                    $('.tours-more').remove();
+                }
+            });
+
+            e.preventDefault();
+        });
+
         // мобильная версия
         if ($(window).width() < 321) {
             $('nav').click(function() {
@@ -393,142 +529,154 @@
             $('.side-menu').click(function() {
                 $(this).toggleClass('open');
             })
+            $('.gallery-item-photo a').click(function(e) {
+            });
         } else {
-            // экскурсии
-            function resizeTours() {
-                $('.tours').each(function() {
-                    var curBlock = $(this);
-                    curBlock.find('.tour-anonce, .tour-wrap').css({'min-height': 0});
-                    curBlock.find('.tour:nth-child(4n)').each(function() {
-                        var curItem   = $(this);
-                        var curIndex  = curBlock.find('.tour').index(curItem);
-                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
-                        var firstItem = curBlock.find('.tour').eq(curIndex - 2);
-                        var zeroItem  = curBlock.find('.tour').eq(curIndex - 3);
+            $(window).load(resizeTours);
 
-                        var curHeight = curItem.find('.tour-anonce').height();
+            $('.gallery-item-photo a').click(function(e) {
+                var windowWidth     = $(window).width();
+                var windowHeight    = $(window).height();
+                var curScrollTop    = $(window).scrollTop();
 
-                        if (prevItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-anonce').height();
-                        }
+                $('body').css({'width': windowWidth, 'height': windowHeight, 'overflow': 'hidden'});
+                $(window).scrollTop(0);
+                $('.wrapper').css({'top': -curScrollTop});
+                $('.wrapper').data('scrollTop', curScrollTop);
 
-                        if (firstItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = firstItem.find('.tour-anonce').height();
-                        }
+                var curIndex = $('.gallery-item-photo a').index($(this));
+                $('.item-gallery-list ul li a').eq(curIndex).click();
 
-                        if (zeroItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = zeroItem.find('.tour-anonce').height();
-                        }
-
-                        curItem.find('.tour-anonce').css({'min-height': curHeight});
-                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
-                        firstItem.find('.tour-anonce').css({'min-height': curHeight});
-                        zeroItem.find('.tour-anonce').css({'min-height': curHeight});
-
-                        var curHeight = curItem.find('.tour-wrap').height();
-
-                        if (prevItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-wrap').height();
-                        }
-
-                        if (firstItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = firstItem.find('.tour-wrap').height();
-                        }
-
-                        if (zeroItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = zeroItem.find('.tour-wrap').height();
-                        }
-
-                        curItem.find('.tour-wrap').css({'min-height': curHeight});
-                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
-                        firstItem.find('.tour-wrap').css({'min-height': curHeight});
-                        zeroItem.find('.tour-wrap').css({'min-height': curHeight});
-                    });
-
-                    if (curBlock.find('.tour').length % 4 == 3) {
-                        var curItem   = curBlock.find('.tour:last');
-                        var curIndex  = curBlock.find('.tour').index(curItem);
-                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
-                        var firstItem = curBlock.find('.tour').eq(curIndex - 2);
-
-                        var curHeight = curItem.find('.tour-anonce').height();
-
-                        if (prevItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-anonce').height();
-                        }
-
-                        if (firstItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = firstItem.find('.tour-anonce').height();
-                        }
-
-                        curItem.find('.tour-anonce').css({'min-height': curHeight});
-                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
-                        firstItem.find('.tour-anonce').css({'min-height': curHeight});
-
-                        var curHeight = curItem.find('.tour-wrap').height();
-
-                        if (prevItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-wrap').height();
-                        }
-
-                        if (firstItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = firstItem.find('.tour-wrap').height();
-                        }
-
-                        curItem.find('.tour-wrap').css({'min-height': curHeight});
-                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
-                        firstItem.find('.tour-wrap').css({'min-height': curHeight});
-                    }
-
-                    if (curBlock.find('.tour').length % 4 == 2) {
-                        var curItem   = curBlock.find('.tour:last');
-                        var curIndex  = curBlock.find('.tour').index(curItem);
-                        var prevItem  = curBlock.find('.tour').eq(curIndex - 1);
-
-                        var curHeight = curItem.find('.tour-anonce').height();
-
-                        if (prevItem.find('.tour-anonce').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-anonce').height();
-                        }
-
-                        curItem.find('.tour-anonce').css({'min-height': curHeight});
-                        prevItem.find('.tour-anonce').css({'min-height': curHeight});
-
-                        var curHeight = curItem.find('.tour-wrap').height();
-
-                        if (prevItem.find('.tour-wrap').height() > curHeight) {
-                            curHeight = prevItem.find('.tour-wrap').height();
-                        }
-
-                        curItem.find('.tour-wrap').css({'min-height': curHeight});
-                        prevItem.find('.tour-wrap').css({'min-height': curHeight});
-                    }
-                });
-            }
-
-            $('.content').on('click', '.tours-more a', function(e) {
-                $('.tours').data('textLink', $('.tours-more a').html());
-                $('.tours-more').html('ЗАГРУЗКА...');
-                $.ajax({
-                    type: 'POST',
-                    url: $(this).attr('href'),
-                    dataType: 'html',
-                    cache: false
-                }).done(function(html) {
-                    $('.tours-list').append(html);
-                    resizeTours();
-                    if ($('.tours .tours-more').length > 0) {
-                        $('.tours-more').html('<a href="' + $('.tours .tours-more a').attr('href') + '">' + $('.tours').data('textLink') + '</a>');
-                        $('.tours .tours-more').remove();
-                    } else {
-                        $('.tours-more').remove();
-                    }
-                });
+                $('.item-gallery').addClass('item-gallery-open');
 
                 e.preventDefault();
             });
 
-            $(window).load(resizeTours);
+            $('.item-gallery-close').click(function(e) {
+                itemGalleryClose();
+                e.preventDefault();
+            });
+
+            $('body').keyup(function(e) {
+                if (e.keyCode == 27) {
+                    itemGalleryClose();
+                }
+            });
+
+            function itemGalleryClose() {
+                if ($('.item-gallery-open').length > 0) {
+                    $('.wrapper').css({'top': 'auto', 'left': 'auto'});
+                    $('body').css({'width': 'auto', 'height': '100%', 'overflow': 'visible'});
+                    $(window).scrollTop($('.wrapper').data('scrollTop'));
+
+                    $('.item-gallery').removeClass('item-gallery-open');
+                }
+            }
+
+            $(window).bind('load resize', function() {
+                var contentHeight   = $(window).height() - ($('.item-gallery-text').height() + $('.item-gallery-list').height());
+                $('.item-gallery-big').css({'height': contentHeight, 'line-height': contentHeight + 'px'});
+                $('.item-gallery-big img').css({'max-height': contentHeight});
+            });
+
+            $('.item-gallery-list ul li a').click(function(e) {
+                var curLink = $(this);
+                var curLi   = curLink.parent();
+
+                $('.item-gallery-title span').html(curLink.attr('title'));
+                var contentHeight   = $(window).height() - ($('.item-gallery-text').height() + $('.item-gallery-list').height());
+                $('.item-gallery-big').css({'height': contentHeight, 'line-height': contentHeight + 'px'});
+                $('.item-gallery-big img').css({'max-height': contentHeight});
+
+                var curIndex = $('.item-gallery-list ul li').index(curLi);
+                $('.item-gallery-big img').attr('src', curLink.attr('href'));
+                $('.item-gallery-big img').load(function() {
+                    $('.item-gallery-big strong').height($('.item-gallery-big img').height());
+                });
+                $('.item-gallery-list ul li.active').removeClass('active');
+                curLi.addClass('active');
+
+                e.preventDefault();
+            });
+
+            $('.item-gallery-prev').click(function(e) {
+                var curIndex = $('.item-gallery-list ul li').index($('.item-gallery-list ul li.active'));
+                curIndex--;
+                if (curIndex < 0) {
+                    curIndex = $('.item-gallery-list ul li').length - 1;
+                }
+                $('.item-gallery-list ul li').eq(curIndex).find('a').click();
+
+                e.preventDefault();
+            });
+
+            $('.item-gallery-next').click(function(e) {
+                var curIndex = $('.item-gallery-list ul li').index($('.item-gallery-list ul li.active'));
+                curIndex++;
+                if (curIndex >= $('.item-gallery-list ul li').length) {
+                    curIndex = 0;
+                }
+                $('.item-gallery-list ul li').eq(curIndex).find('a').click();
+
+                e.preventDefault();
+            });
+
+            $('.item-gallery-list').each(function() {
+                var curSlider = $(this);
+                curSlider.data('curIndex', 0);
+                curSlider.data('disableAnimation', true);
+
+                curSlider.find('.item-gallery-list-prev').css({'display': 'none'});
+                if (curSlider.find('li').length < 12) {
+                    curSlider.find('.item-gallery-list-next').css({'display': 'none'});
+                }
+
+                curSlider.find('ul').width(78 * curSlider.find('li').length);
+            });
+
+            $('.item-gallery-list-next').click(function(e) {
+                var curSlider = $('.item-gallery-list');
+
+                if (curSlider.data('disableAnimation')) {
+                    var curIndex = curSlider.data('curIndex');
+                    curIndex += 10;
+                    curSlider.find('.item-gallery-list-prev').css({'display': 'block'});
+                    if (curIndex >= curSlider.find('li').length - 12) {
+                        curIndex = curSlider.find('li').length - 12;
+                        curSlider.find('.item-gallery-list-next').css({'display': 'none'});
+                    }
+
+                    curSlider.data('disableAnimation', false);
+                    curSlider.find('ul').animate({'left': -curIndex * 78}, function() {
+                        curSlider.data('curIndex', curIndex);
+                        curSlider.data('disableAnimation', true);
+                    });
+                }
+
+                e.preventDefault();
+            });
+
+            $('.item-gallery-list-prev').click(function(e) {
+                var curSlider = $('.item-gallery-list');
+
+                if (curSlider.data('disableAnimation')) {
+                    var curIndex = curSlider.data('curIndex');
+                    curIndex -= 10;
+                    curSlider.find('.item-gallery-list-next').css({'display': 'block'});
+                    if (curIndex <= 0) {
+                        curIndex = 0;
+                        curSlider.find('.item-gallery-list-prev').css({'display': 'none'});
+                    }
+
+                    curSlider.data('disableAnimation', false);
+                    curSlider.find('ul').animate({'left': -curIndex * 78}, function() {
+                        curSlider.data('curIndex', curIndex);
+                        curSlider.data('disableAnimation', true);
+                    });
+                }
+
+                e.preventDefault();
+            });
         }
 
     });
@@ -538,7 +686,6 @@
         var windowWidth     = $(window).width();
         var windowHeight    = $(window).height();
         var curScrollTop    = $(window).scrollTop();
-        var curScrollLeft   = $(window).scrollLeft();
 
         $('body').css({'width': windowWidth, 'height': windowHeight, 'overflow': 'hidden'});
         $(window).scrollTop(0);
