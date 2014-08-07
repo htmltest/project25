@@ -544,7 +544,7 @@ footer {background:#085f3d}
 .window .content {float:none; width:460px; padding:29px 40px 36px 40px}
 .window .content h2 {margin-top:0}
 
-@media (max-width:320px) {
+@media (max-width:340px) {
     html {min-width:320px}
 
     body {min-width:320px}
@@ -725,3 +725,4 @@ footer {background:#085f3d}
 
 body.no-image img {visibility:hidden}
 body.no-image * {background-image:none !important}
+body.no-image .top-img-visible-checkbox {background-image:url(../images/checkbox.png) !important}
