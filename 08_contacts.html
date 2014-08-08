@@ -138,6 +138,8 @@
                             zoom: 16
                         });
 
+                        myMap.controls.add('zoomControl');
+
                         var myGeocoder = ymaps.geocode('121019, Москва, Мичуринский пр. 13');
                         myGeocoder.then(
                             function (res) {

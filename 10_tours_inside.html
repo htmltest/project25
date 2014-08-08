@@ -162,6 +162,8 @@
                             zoom: 15
                         });
 
+                        myMap.controls.add('zoomControl');
+
                         var myGeocoder = ymaps.geocode('Москва, МКАД, 65-й километр, 65-й км, 65, корп.3, МВЦ Крокус-Экспо');
                         myGeocoder.then(
                             function (res) {
