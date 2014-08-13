@@ -27,6 +27,8 @@
             $('body').addClass('font-mini');
             $('.top-font-size-2, .top-font-size-3').removeClass('active');
             $('.top-font-size-1').addClass('active');
+            resizeTours();
+            resizeContacts();
             e.preventDefault();
         });
 
@@ -35,6 +37,8 @@
             $('body').removeClass('font-mini');
             $('.top-font-size-1, .top-font-size-3').removeClass('active');
             $('.top-font-size-2').addClass('active');
+            resizeTours();
+            resizeContacts();
             e.preventDefault();
         });
 
@@ -43,6 +47,8 @@
             $('body').removeClass('font-mini');
             $('.top-font-size-1, .top-font-size-2').removeClass('active');
             $('.top-font-size-3').addClass('active');
+            resizeTours();
+            resizeContacts();
             e.preventDefault();
         });
 
@@ -800,5 +806,45 @@
         $('body').css({'width': 'auto', 'height': '100%', 'overflow': 'visible'});
         $(window).scrollTop($('.wrapper').data('scrollTop'));
     }
+
+    // давайте дружить
+    $(window).load(function() {
+        if ($.cookie('socialWindow') != '1') {
+            $.ajax({
+                url: '/windows/social.html',
+                dataType: 'html',
+                cache: false
+            }).done(function(html) {
+                windowOpen(html);
+                $.cookie('socialWindow', '1');
+            });
+        }
+    });
+
+    // выравнивание блоков контактов
+    function resizeContacts() {
+        $('.contacts-col').css({'height': 'auto'});
+        if ($(window).width() > 319) {
+            $('.contacts-cols').each(function() {
+                var curBlock = $(this);
+                curBlock.find('.contacts-col:odd').each(function() {
+                    var curItem   = $(this);
+                    var curIndex  = curBlock.find('.contacts-col').index(curItem);
+                    var prevItem  = curBlock.find('.contacts-col').eq(curIndex - 1);
+
+                    var curHeight = curItem.height();
+
+                    if (prevItem.height() > curHeight) {
+                        curHeight = prevItem.height();
+                    }
+
+                    curItem.css({'height': curHeight});
+                    prevItem.css({'height': curHeight});
+                });
+            });
+        }
+    }
+
+    $(window).bind('load resize', resizeContacts);
 
 })(jQuery);

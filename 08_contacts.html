@@ -27,6 +27,7 @@
         <script src="js/jquery.fileupload/js/jquery.fileupload-validate.js"></script>
         <script src="js/jquery.fileupload/js/jquery.fileupload-ui.js"></script>
         <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+        <script src="js/jquery.cookie.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -130,9 +131,294 @@
                 <div class="content">
                     <h1 class="tours-title">Контакты</h1>
 
-                    <div class="contacts-text">
-                        Адрес департамента: 121019, Москва, <strong>Мичуринский пр. 13</strong><br />Телефон "Горячей линии": <strong>(495) 739-27-05</strong>
+                    <!-- contacts cols -->
+                    <div class="contacts-cols">
+                        <div class="contacts-cols-inner">
+                            <div class="contacts-col">
+                                <h2>Центральный офис</h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">119192 г.Москва, Мичуринский проспект, д.13</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>+7 (499) 739-27-05<br />+7 (499) 739-27-07<br />+7 (499) 739-27-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Факс:</td>
+                                            <td>+7 (499) 739-27-06</td>
+                                        </tr>
+                                        <tr>
+                                            <td>E-mail:</td>
+                                            <td><a href="mailto:mospriroda@mail.ru">mospriroda@mail.ru</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h2>Пресс-служба</h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>+7 (495) 691-28-90</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Факс:</td>
+                                            <td>+7 (495) 691-74-58</td>
+                                        </tr>
+                                        <tr>
+                                            <td>E-mail:</td>
+                                            <td><a href="mailto:moseco@bk.ru">moseco@bk.ru</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+                    <!-- contacts cols END -->
+
+                    <h2>Дирекции</h2>
+
+                    <!-- contacts cols -->
+                    <div class="contacts-cols contacts-cols-all">
+                        <div class="contacts-cols-inner">
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий СВАО и&nbsp;Сокольники</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">141044 МО, Мытищинский р-н, п. Леспаркхоза Клязьминский, д.1</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(495)579-29-76</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://ooptsvao.mos.ru" target="_blank">ooptsvao.mos.ru</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Мусихин Сергей Александрович</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий «Измайлово» и&nbsp;«Косинский»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">105043, Измайловский пр-т, 56</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 367-89-18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://ooptsvao.mos.ru" target="_blank">ooptsvao.mos.ru</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Лебедев Андрей Владимирович</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природной территории «Кузьминки-Люблино»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">109507, МКАД, 10 км</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(495) 258-45-60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://www.kuzpark.ru/kuzpark/ru/" target="_blank">http://www.kuzpark.ru/kuzpark/ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Гасанов Ильгар Гейдар оглы</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природной территории «Царицыно»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">115582, Каширское ш., д. 148, корп.1</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 782-78-23</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://www.ooptuao.ru/uao_eco/ru/" target="_blank">http://www.ooptuao.ru/uao_eco/ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Видяпин Виталий Витальевич</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий «Битцевский парк»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">117437, ул. Островитянова, д. 15 (напротив дома)</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 643-22-97</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://www.gpbuuc.ru/cao/ru/" target="_blank">http://www.gpbuuc.ru/cao/ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Мацура Роман Евгеньевич</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий «Тропарево» и «Теплый Стан»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">119361, Озерная, д.8</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 726-15-84</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://setun-oopt.ru/" target="_blank">http://setun-oopt.ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Чепикова Елена Альбертовна</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий «Долина р.Сетунь»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">119361, Озерная, д.8</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 726-15-85</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://setun-oopt.ru/" target="_blank">http://setun-oopt.ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Бударин Максим Юрьевич</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природной территории «Москворецкий»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">123103, ул. Таманская, 2а</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 199-01-10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://oopt-szao.ru/" target="_blank">http://oopt-szao.ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Козловцев Александр Иванович</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий «Тушинский», «Покровское-Стрешево»</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">125171, 5-й Войковский проезд, д. 2а, стр. 1</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 150-47-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://www.ooptsao.ru/" target="_blank">http://www.ooptsao.ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Якубов Рустам Рашидович</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="contacts-col">
+                                <h3>Дирекция природных территорий ЗелАО</h3>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Адрес:</td>
+                                            <td><a href="#" class="contacts-address-link">Зеленоград, пр.4921, д.4</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон:</td>
+                                            <td>8(499) 735-55-56</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Сайт:</td>
+                                            <td><a href="http://www.zeloopt.ru/zelao_eco/ru/" target="_blank">http://www.zeloopt.ru/zelao_eco/ru/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Директор:</td>
+                                            <td>Рунов Владимир Валентинович</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- contacts cols END -->
+
                 </div>
                 <!-- content END -->
 
@@ -150,27 +436,201 @@
                     function init () {
                         myMap = new ymaps.Map('map', {
                             center: [56.136, 40.390],
-                            zoom: 16
+                            zoom: 10
                         });
 
                         myMap.controls.add('zoomControl');
 
-                        var myGeocoder = ymaps.geocode('121019, Москва, Мичуринский пр. 13');
+                        // Создание макета балуна
+                        var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+                            '<div class="popover"><div class="arrow"></div>' +
+                                '$[[options.contentLayout]]' +
+                                '</div>', {
+                                /**
+                                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                                 * @function
+                                 * @name build
+                                 */
+                                build: function () {
+                                    this.constructor.superclass.build.call(this);
+
+                                    this._$element = $('.popover', this.getParentElement());
+
+                                    this.applyElementOffset();
+
+                                    this._$element.find('.close')
+                                        .on('click', $.proxy(this.onCloseClick, this));
+                                },
+
+                                /**
+                                 * Удаляет содержимое макета из DOM.
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                                 * @function
+                                 * @name clear
+                                 */
+                                clear: function () {
+                                    this._$element.find('.close')
+                                        .off('click');
+
+                                    this.constructor.superclass.clear.call(this);
+                                },
+
+                                /**
+                                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                                 * @function
+                                 * @name onSublayoutSizeChange
+                                 */
+                                onSublayoutSizeChange: function () {
+                                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                                    if(!this._isElement(this._$element)) {
+                                        return;
+                                    }
+
+                                    this.applyElementOffset();
+
+                                    this.events.fire('shapechange');
+                                },
+
+                                /**
+                                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                                 * @function
+                                 * @name applyElementOffset
+                                 */
+                                applyElementOffset: function () {
+                                    this._$element.css({
+                                        left: -(this._$element[0].offsetWidth / 2),
+                                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                                    });
+                                },
+
+                                /**
+                                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                                 * @function
+                                 * @name onCloseClick
+                                 */
+                                onCloseClick: function (e) {
+                                    e.preventDefault();
+
+                                    this.events.fire('userclose');
+                                },
+
+                                /**
+                                 * Используется для автопозиционирования (balloonAutoPan).
+                                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                                 * @function
+                                 * @name getClientBounds
+                                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                                 */
+                                getShape: function () {
+                                    if(!this._isElement(this._$element)) {
+                                        return MyBalloonLayout.superclass.getShape.call(this);
+                                    }
+
+                                    var position = this._$element.position();
+
+                                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                                        [position.left, position.top], [
+                                            position.left + this._$element[0].offsetWidth,
+                                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                                        ]
+                                    ]));
+                                },
+
+                                /**
+                                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                                 * @function
+                                 * @private
+                                 * @name _isElement
+                                 * @param {jQuery} [element] Элемент.
+                                 * @returns {Boolean} Флаг наличия.
+                                 */
+                                _isElement: function (element) {
+                                    return element && element[0] && element.find('.arrow')[0];
+                                }
+                            });
+
+                        // Создание вложенного макета содержимого балуна.
+                        var MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                            '<h3>$[properties.balloonHeader]</h3>' +
+                            '$[properties.balloonContent]'
+                        );
+
+                        var myGeocoder = ymaps.geocode('Москва');
                         myGeocoder.then(
                             function (res) {
                                 var coords = res.geoObjects.get(0).geometry.getCoordinates();
-                                myPlacemark = new ymaps.Placemark(coords, {}, {
-                                    iconImageHref: 'images/map-icon-big.png',
-                                    iconImageSize: [70, 69],
-                                    iconImageOffset: [-35, -35]
-                                });
-                                myMap.geoObjects.add(myPlacemark);
                                 myMap.setCenter(coords);
                             },
                             function (err) {
                                 alert('Ошибка');
                             }
                         );
+
+                        myGeocoder = ymaps.geocode($('.contacts-address-link:first').html());
+                        var curName = $('.contacts-col:first h2').html();
+                        var curContent = $('.contacts-col:first table').clone();
+                        curContent.find('.contacts-address-link').each(function() {
+                            $(this).parent().html($(this).html());
+                        });
+                        curContent = '<table>' + curContent.html() + '</table>';
+                        myGeocoder.then(
+                            function (res) {
+                                var coords = res.geoObjects.get(0).geometry.getCoordinates();
+                                myPlacemark = new ymaps.Placemark(coords, {
+                                    balloonHeader: curName,
+                                    balloonContent: curContent
+                                }, {
+                                    balloonLayout: MyBalloonLayout,
+                                    balloonContentLayout: MyBalloonContentLayout,
+                                    balloonPanelMaxMapArea: 0,
+                                    hideIconOnBalloonOpen: false,
+                                    balloonShadow: false,
+                                    iconImageHref: 'images/map-icon-contacts-main.png',
+                                    iconImageSize: [53, 52],
+                                    iconImageOffset: [-27, -26]
+                                });
+                                myMap.geoObjects.add(myPlacemark);
+                            }
+                        );
+
+                        $('.contacts-cols-all .contacts-col').each(function() {
+                            var curName = $(this).find('h3').html();
+                            var curContent = $(this).find('table').clone();
+                            curContent.find('.contacts-address-link').each(function() {
+                                $(this).parent().html($(this).html());
+                            });
+                            curContent = '<table>' + curContent.html() + '</table>';
+                            myGeocoder = ymaps.geocode($(this).find('.contacts-address-link').html());
+                            myGeocoder.then(
+                                function (res) {
+                                    var coords = res.geoObjects.get(0).geometry.getCoordinates();
+                                    myPlacemark = new ymaps.Placemark(coords, {
+                                        balloonHeader: curName,
+                                        balloonContent: curContent
+                                    }, {
+                                        balloonLayout: MyBalloonLayout,
+                                        balloonContentLayout: MyBalloonContentLayout,
+                                        balloonPanelMaxMapArea: 0,
+                                        hideIconOnBalloonOpen: false,
+                                        balloonShadow: false,
+                                        iconImageHref: 'images/map-icon-contacts-all.png',
+                                        iconImageSize: [26, 25],
+                                        iconImageOffset: [-13, -13]
+                                    });
+                                    myMap.geoObjects.add(myPlacemark);
+                                }
+                            );
+                        });
+
+                        $('.contacts-address-link').click(function(e) {
+                            $.scrollTo($('.map-wrap'), 500, {offset: {'top': -53}});
+                            e.preventDefault();
+                        });
 
                     }
                 </script>

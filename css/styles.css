@@ -467,8 +467,24 @@ nav ul li.active a {background:#1ab157}
 .page-404-title {font:2.6em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f; text-align:center; margin:2em 0 0 0}
 .page-404-text {font-size:1.3em; line-height:1em; text-align:center; padding:10px 0 0 0}
 
-.contacts-text {font:1.3em/1.3em HelveticaNeueCyrRoman, sans-serif; text-align:center}
-.contacts-text strong {font-weight:normal; font-family:HelveticaNeueCyrMedium, sans-serif}
+.contacts-cols {width:100%; position:relative; overflow:hidden; margin-top:-16px}
+.contacts-cols-all:after {content:""; display:block; width:100%; height:1px; background:#fff; position:absolute; left:0; bottom:0}
+.contacts-cols-inner {width:960px; margin-left:-20px}
+.contacts-cols-inner:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.contacts-col {float:left; width:440px; padding:0 20px 0 20px; border-bottom:1px solid #eaeaea}
+.contacts-col table {width:100%; border-collapse:collapse; margin:1.5em 0 2.2em 0; border-bottom:none}
+.contacts-col table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; border-top:none; font-weight:bold; width:100%}
+.contacts-col table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
+.contacts-col table tr:first-child td {padding-top:.35em; padding-bottom:.35em; line-height:1.3em}
+.contacts-address-link {text-decoration:none; background:url(../images/dots-1.png) repeat-x left bottom}
+.contacts-address-link:hover {background:none}
+
+.popover {width:280px; padding:5px 32px 21px 32px; background:#fff; -webkit-box-shadow:0 0 5px rgba(0, 0, 0, .4); -moz-box-shadow:0 0 5px rgba(0, 0, 0, .4); box-shadow:0 0 5px rgba(0, 0, 0, .4); z-index:999}
+.popover h3 {margin:0 0 1em 0; padding:0; font:normal 1.3em/1em HelveticaNeueCyrRoman, sans-serif; color:#008652}
+.popover table {width:100%; border-collapse:collapse; margin:1.5em 0 0 0}
+.popover table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; font-weight:bold; width:100%}
+.popover table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
+.popover table tr:first-child td {padding-top:.35em; padding-bottom:.35em; line-height:1.3em}
 
 .gallery {width:960px; margin:2em 0 0 -10px}
 .gallery:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
@@ -574,6 +590,12 @@ footer {background:#085f3d}
 
 .window .content {float:none; width:460px; padding:29px 40px 36px 40px}
 .window .content h2 {margin-top:0}
+
+.window .social-window {width:260px}
+.social-window-links {font-size:0; line-height:0; letter-spacing:-1px; text-align:center}
+.social-window-links a {margin:0 3px}
+.social-window h2 {margin-top:0; text-align:center}
+.social-window h3 {margin-top:0; text-align:center; line-height:1.3em}
 
 @media (max-width:340px) {
     html {min-width:320px}
@@ -769,6 +791,9 @@ footer {background:#085f3d}
     .gallery-item-photo div img {width:100%}
     .gallery-item-photo div span {display:none}
     .gallery-item-name {display:block; text-align:center; font-style:italic; padding:15px 0 0 0}
+
+    .contacts-cols-inner {width:300px; margin-left:0; padding:0 10px}
+    .contacts-col {float:none; width:100%; padding:0}
 }
 
 body.no-image img {visibility:hidden}
