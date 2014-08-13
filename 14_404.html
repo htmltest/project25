@@ -26,6 +26,7 @@
         <script src="js/jquery.fileupload/js/jquery.fileupload-process.js"></script>
         <script src="js/jquery.fileupload/js/jquery.fileupload-validate.js"></script>
         <script src="js/jquery.fileupload/js/jquery.fileupload-ui.js"></script>
+        <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,77 +37,91 @@
         <!-- wrapper -->
         <div class="wrapper">
 
-            <!-- top -->
-            <div class="top">
-                <div class="top-social">
-                    <a href="#"><img src="images/top-social-vk.png" alt="" width="20" height="20" /></a>
-                    <a href="#"><img src="images/top-social-fb.png" alt="" width="20" height="20" /></a>
-                </div>
-
-                <div class="top-img-visible">
-                    <div class="top-img-visible-title"><span>Показывать и</span><em>И</em>зображения:</div>
-                    <div class="top-img-visible-checkbox"><input type="checkbox" name="imgVisible" checked="checked" /></div>
-                </div>
-
-                <div class="top-scheme">
-                    <div class="top-scheme-title">Цветовая схема:</div>
-                    <a href="#" class="top-scheme-1 active">A</a>
-                    <a href="#" class="top-scheme-2">A</a>
-                    <a href="#" class="top-scheme-3">A</a>
-                </div>
-
-                <div class="top-font-size">
-                    <div class="top-font-size-title">Размер шрифта:</div>
-                    <a href="#" class="top-font-size-1">A</a>
-                    <a href="#" class="top-font-size-2 active">A</a>
-                    <a href="#" class="top-font-size-3">A</a>
-                </div>
-            </div>
-            <!-- top END -->
-
             <header>
-                <div class="header-inner">
-                    <div class="logo"><img src="images/logo.png" alt="" width="140" height="73" /><img src="images/logo-mini.png" alt="" width="61" height="31" /></div>
 
-                    <nav>
-                        <ul>
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="#">Деятельность</a></li>
-                            <li><a href="#">Услуги</a></li>
-                            <li><a href="#">Территории</a></li>
-                            <li><a href="#">Природа народу</a></li>
-                            <li><a href="#">Контакты</a></li>
-                        </ul>
-                    </nav>
+                <!-- subheader -->
+                <div class="subheader">
+                    <div class="subheader-feedback-link"><a href="windows/feedback.html">Обратная связь</a></div>
+
+                    <div class="subheader-address">
+                        <div class="subheader-title">адрес / телефон</div>
+                        <div class="subheader-text">ул. Новый Арбат, стр. 11, корп. 1 <span>/</span> +7 (495) 644-20-77</div>
+                    </div>
+
+                    <div class="subheader-map">
+                        <div class="subheader-map-img"><img src="images/subheader-map.png" alt="" width="45" height="55" /></div>
+                        <div class="subheader-map-text">
+                            <div class="subheader-map-title">территории</div>
+                            <a href="#" class="subheader-map-link">
+                                <span class="subheader-map-link-value">ВАО, парк Лосиный остров</span>
+                                <img src="images/subheader-map-link-arrow.png" alt="" width="7" height="4" />
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-            </header>
+                <!-- subheader END -->
 
-            <!-- subheader -->
-            <div class="subheader">
-                <div class="subheader-map">
-                    <div class="subheader-map-img"><img src="images/subheader-map.png" alt="" width="53" height="65" /></div>
-                    <div class="subheader-map-text">
-                        <div class="subheader-map-title">территории</div>
-                        <a href="#" class="subheader-map-link">
-                            <span class="subheader-map-link-value">ВАО, парк Лосиный остров</span>
-                            <img src="images/subheader-map-link-arrow.png" alt="" width="7" height="4" />
-                        </a>
+                <!-- top -->
+                <div class="top">
+                    <div class="top-icon"></div>
+                    <div class="top-panel">
+                        <div class="top-img-visible">
+                            <div class="top-img-visible-title"><span>Показывать и</span><em>И</em>зображения:</div>
+                            <div class="top-img-visible-checkbox"><input type="checkbox" name="imgVisible" checked="checked" /></div>
+                        </div>
+
+                        <div class="top-scheme">
+                            <div class="top-scheme-title">Цветовая схема:</div>
+                            <a href="#" class="top-scheme-1 active">A</a>
+                            <a href="#" class="top-scheme-2">A</a>
+                            <a href="#" class="top-scheme-3">A</a>
+                        </div>
+
+                        <div class="top-font-size">
+                            <div class="top-font-size-title">Размер шрифта:</div>
+                            <a href="#" class="top-font-size-1">A</a>
+                            <a href="#" class="top-font-size-2 active">A</a>
+                            <a href="#" class="top-font-size-3">A</a>
+                        </div>
                     </div>
                 </div>
+                <!-- top END -->
 
-                <div class="subheader-address">
-                    <div class="subheader-title">адрес</div>
-                    <div class="subheader-text">Москва, Мичуринский пр. 13</div>
+                <!-- header wrap -->
+                <div class="header-wrap">
+                    <div class="header-inner">
+                        <div class="logo">
+                            <img src="images/logo.png" alt="" width="140" height="56" class="logo-main" />
+                            <img src="images/logo-mini.png" alt="" width="70" height="29" class="logo-mini" />
+                            <img src="images/logo-mobile.png" alt="" width="61" height="24" class="logo-mobile" />
+                        </div>
+
+                        <div class="top-social">
+                            <a href="#"><img src="images/top-social-vk.png" alt="" width="20" height="20" /><img src="images/top-social-vk-big.png" alt="" width="34" height="34" /></a>
+                            <a href="#"><img src="images/top-social-fb.png" alt="" width="20" height="20" /><img src="images/top-social-fb-big.png" alt="" width="34" height="34" /></a>
+                        </div>
+
+                        <nav>
+                            <ul>
+                                <li><a href="#">О нас</a></li>
+                                <li><a href="#">Деятельность</a></li>
+                                <li><a href="#">Услуги</a></li>
+                                <li><a href="#">Территории</a></li>
+                                <li><a href="#">Природа народу</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+
+                        <a href="#" class="up up-left"></a>
+                        <a href="#" class="up up-right"></a>
+                    </div>
                 </div>
+                <!-- header wrap END -->
 
-                <div class="subheader-phone">
-                    <div class="subheader-title">телефон</div>
-                    <div class="subheader-text">+7 (499) 739-27-05</div>
-                </div>
+                <div class="header-shadow"></div>
 
-                <div class="subheader-feedback-link"><a href="windows/feedback.html">Обратная связь</a></div>
-            </div>
-            <!-- subheader END -->
+            </header>
 
             <div class="page-404">
                 <div class="page-404-img"><img src="images/page-404.jpg" alt="" /></div>
@@ -161,7 +176,7 @@
             <footer>
                 <div class="footer-inner">
                     <div class="footer-top">
-                        <div class="footer-logo"><img src="images/footer-logo.png" alt="" width="70" height="37" /></div>
+                        <div class="footer-logo"><img src="images/footer-logo.png" alt="" width="70" height="29" /></div>
                         <div class="footer-map">
                             <div class="footer-map-img"><img src="images/footer-map.png" alt="" width="99" height="96" /><img src="images/footer-map-mini.png" alt="" width="78" height="96" /></div>
                             <div class="footer-map-text">
