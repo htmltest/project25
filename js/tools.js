@@ -738,6 +738,32 @@
             }
         });
 
+        // фильтр территорий
+        $('.territory-regions-list input:checked').parent().addClass('checked');
+        $('.territory-regions-list input:disabled').parent().addClass('disabled');
+        $('.territory-regions-list .item').click(function() {
+            if (!$(this).hasClass('disabled')) {
+                var curName = $(this).find('input').attr('name');
+                $('.territory-regions-list .item input[name="' + curName + '"]').parent().removeClass('checked');
+                $(this).addClass('checked');
+                $(this).find('input').prop('checked', true).trigger('change');
+                loadTerritory();
+            }
+        });
+
+        $('.territory-regions input').change(function() {
+            if ($(this).prop('checked')) {
+                var curIndex = $('.territory-regions input').index($(this));
+                $('.territory-objects-tab').removeClass('active');
+                $('.territory-objects-tab').eq(curIndex).addClass('active');
+            }
+        });
+
+        // загрузка територий по данным формы
+        function loadTerritory() {
+            // сюда можно поместить обращение к серверу для получения данных для карты
+        }
+
     });
 
     $(window).bind('load resize scroll', function() {

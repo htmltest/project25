@@ -63,11 +63,7 @@ header {position:relative}
 
 .top-social {position:absolute; left:95px; top:-52px; line-height:0}
 .top-social a {float:left; margin:0 3px 0 0}
-.top-social img {display:none}
-.top-social img:first-child {display:block}
-.header-fixed .top-social {left:-91px; top:9px}
-.header-fixed .top-social img {display:block}
-.header-fixed .top-social img:first-child {display:none}
+.header-fixed .top-social {left:143px; top:16px}
 
 nav {position:absolute; right:-20px; top:0; text-transform:uppercase; font-family:HelveticaNeueCyrMedium, sans-serif}
 nav ul {display:table; margin:0; padding:0; list-style:none}
@@ -480,11 +476,16 @@ nav ul li.active a {background:#1ab157}
 .contacts-address-link:hover {background:none}
 
 .popover {width:280px; padding:5px 32px 21px 32px; background:#fff; -webkit-box-shadow:0 0 5px rgba(0, 0, 0, .4); -moz-box-shadow:0 0 5px rgba(0, 0, 0, .4); box-shadow:0 0 5px rgba(0, 0, 0, .4); z-index:999}
+.popover-territory {width:260px; padding:18px 20px}
+.popover-img {margin:0 0 13px 0}
 .popover h3 {margin:0 0 1em 0; padding:0; font:normal 1.3em/1em HelveticaNeueCyrRoman, sans-serif; color:#008652}
 .popover table {width:100%; border-collapse:collapse; margin:1.5em 0 0 0}
 .popover table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; font-weight:bold; width:100%}
 .popover table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
 .popover table tr:first-child td {padding-top:.35em; padding-bottom:.35em; line-height:1.3em}
+.popover-text {font-size:.9em}
+.popover h3+.popover-text {margin-top:-1em}
+.popover-link {margin:1em 0 0 0}
 
 .gallery {width:960px; margin:2em 0 0 -10px}
 .gallery:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
@@ -596,6 +597,32 @@ footer {background:#085f3d}
 .social-window-links a {margin:0 3px}
 .social-window h2 {margin-top:0; text-align:center}
 .social-window h3 {margin-top:0; text-align:center; line-height:1.3em}
+
+.territory-filter {font-family:HelveticaNeueCyrRoman, sans-serif}
+.territory-filter form {margin:0; padding:0}
+.territory-regions {text-align:center}
+.territory-regions-list {display:inline-block}
+.territory-regions-list .item {float:left; color:#f6861f; position:relative; margin:1px; min-width:42px; border:1px solid #f6861f; overflow:hidden; cursor:pointer; padding:4px 8px 3px 8px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
+.territory-regions-list .item input {position:absolute; left:-9999px; top:-9999px}
+.territory-regions-list .item.checked {background:#f6861f; color:#fff}
+.territory-regions-list .item.disabled {opacity:.25; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=25); cursor:default}
+
+.territory-objects {padding:7px 0 0 0}
+.territory-objects-tab {display:none; text-align:center}
+.territory-objects-tab.active {display:block}
+.territory-objects .territory-regions-list .item {padding-left:15px; padding-right:15px; min-width:0}
+
+.territory-hot {font:1.3em/1.3em HelveticaNeueCyrRoman, sans-serif; text-align:center; margin:1em 0 0 0 }
+.territory-hot strong {font-weight:normal; font-family:HelveticaNeueCyrMedium, sans-serif; color:#000}
+
+.map-objects {position:absolute; left:50%; top:35px; margin-left:-470px; width:300px; background:#fff; -webkit-box-shadow:0 0 5px rgba(0, 0, 0, .4); -moz-box-shadow:0 0 5px rgba(0, 0, 0, .4); box-shadow:0 0 5px rgba(0, 0, 0, .4); z-index:999}
+.map-objects-title {color:#fff; font:1.7em/1em HelveticaNeueCyrRoman, sans-serif; background:#008652; padding:14px 0 16px 20px}
+.map-objects-list {padding:9px 20px 19px 20px; font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif}
+.map-objects-list ul {margin:0; padding:0; list-style:0; position:relative; overflow:hidden; max-height:450px}
+.map-objects-list ul li {margin:0; padding:8px 0 9px 0; border-top:1px solid #f2f2f2}
+.map-objects-list ul li:first-child {border-top:none}
+.map-objects-list ul li a {text-decoration:none}
+.map-objects-list ul li a:hover {color:#f6861f}
 
 @media (max-width:340px) {
     html {min-width:320px}
