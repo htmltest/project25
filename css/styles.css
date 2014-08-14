@@ -602,7 +602,7 @@ footer {background:#085f3d}
 .territory-filter form {margin:0; padding:0}
 .territory-regions {text-align:center}
 .territory-regions-list {display:inline-block}
-.territory-regions-list .item {float:left; color:#f6861f; position:relative; margin:1px; min-width:42px; border:1px solid #f6861f; overflow:hidden; cursor:pointer; padding:4px 8px 3px 8px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
+.territory-regions-list .item {display:inline-block; color:#f6861f; position:relative; margin:-1px; min-width:42px; border:1px solid #f6861f; overflow:hidden; cursor:pointer; padding:4px 8px 3px 8px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
 .territory-regions-list .item input {position:absolute; left:-9999px; top:-9999px}
 .territory-regions-list .item.checked {background:#f6861f; color:#fff}
 .territory-regions-list .item.disabled {opacity:.25; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=25); cursor:default}
