@@ -103,14 +103,17 @@ nav ul li.active a {background:#1ab157}
 .container {max-width:940px; margin:0 auto}
 .container:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 
-.side {float:left; width:180px; padding:44px 0 0 0}
+.side {float:left; width:180px; padding:41px 0 0 0}
 
-.side-menu {font:1em/1.3em HelveticaNeueCyrRoman, sans-serif}
+.side-menu {font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif; position:relative; margin:0 -25px 0 -5px}
 .side-menu ul {margin:0; padding:0; list-style:none}
-.side-menu ul li {margin:0; padding:1px 0; position:relative}
-.side-menu ul li a {color:#1ab157; text-decoration:none; position:relative; display:block; margin:0 -20px; padding:7px 55px 9px 20px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
+.side-menu ul li {margin:0 0 -1px 0; padding:0; border-top:1px solid #e5f3ed; position:relative}
+.side-menu ul li:first-child {border-top:none}
+.side-menu ul li a {color:#1ab157; text-decoration:none; position:relative; display:block; margin:-1px -5px 0 -5px; padding:9px 10px 10px 10px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
 .side-menu ul li a:hover,
-.side-menu ul li.active a {color:#fff; background:#008652}
+.side-menu ul li.active a {color:#fff; background:#1ab157}
+.side-menu ul li.active a {z-index:1}
+.side-menu ul li:hover a {z-index:2}
 
 .side-item {margin:3em 0 4em 0}
 .side-item-photo {width:144px; height:144px; position:relative; line-height:0; overflow:hidden}
@@ -248,7 +251,7 @@ nav ul li.active a {background:#1ab157}
 .bottom-slider-ctrl a {display:inline-block; position:relative; width:12px; height:12px; margin:0 3px; border:2px solid #33e079; background:url(../images/blank.gif); -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; behavior:url(./js/PIE.htc)}
 .bottom-slider-ctrl a.active {background:#33e079}
 
-.main-news {background:#fff url(../images/main-news-bg-left.png) no-repeat; margin:0 0 42px 0}
+.main-news {background:#fff url(../images/main-news-bg-left.png) no-repeat}
 .main-news-inner {background:url(../images/main-news-bg-right.png) no-repeat right bottom}
 .main-news-wrap {width:940px; margin:0 auto; padding:30px 0 22px 0}
 .main-news-title {text-align:center; text-transform:uppercase; color:#f6861f; font:normal 1.7em/1em HelveticaNeueCyrRoman, sans-serif}
@@ -625,6 +628,19 @@ footer {background:#085f3d}
 .map-objects-list ul li a {text-decoration:none}
 .map-objects-list ul li a:hover {color:#f6861f}
 
+.oopt {border-top:2px solid #008652; background:#0d9c55; margin:0 0 42px 0}
+.oopt-inner {max-width:940px; margin:0 auto; text-align:center; padding:39px 10px 0 10px}
+.oopt-title {color:#fff; text-transform:uppercase; font:normal 1.7em/1em HelveticaNeueCyrRoman, sans-serif}
+.oopt-groups {padding:16px 0 9px 0}
+.oopt-group {border-top:1px solid #15aa5c; padding:30px 0 0 0}
+.oopt-group:first-child {border-top:none}
+.oopt-group-title {font:normal 1.7em/1em HelveticaNeueCyrRoman, sans-serif; color:#33e079}
+.oopt-group-item {display:inline-block; vertical-align:top; width:172px; padding:24px 6px 28px 6px}
+.oopt-group-item a {color:#fff; text-decoration:none}
+.oopt-group-item a:hover {color:#34db77}
+.oopt-group-item-photo {position:relative; line-height:0; padding:0 0 10px 0}
+.oopt-group-item-photo img {position:relative; -moz-border-radius:40px; -webkit-border-radius:40px; border-radius:40px; behavior:url(./js/PIE.htc)}
+
 @media (min-width:350px) and (max-width:780px) {
     html {min-width:768px}
 
@@ -728,6 +744,8 @@ footer {background:#085f3d}
     .main-news-name {width:162px}
     .main-news-date {width:162px}
 
+    .oopt-group-item {width:134px}
+
     .team-row {margin:0}
     .team-col {float:none; width:100%; margin:2em 0}
     .team-col:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
@@ -826,9 +844,9 @@ footer {background:#085f3d}
 
     .side {float:none; position:absolute; z-index:2; left:-10px; top:0; padding:0; width:38px; height:35px}
     .container-news-detail .side {display:none}
-    .side-menu {width:38px; height:35px; background:url(../images/side-menu-mini.png); position:relative}
+    .side-menu {width:38px; height:35px; background:url(../images/side-menu-mini.png); position:relative; margin:0; font-size:1em; line-height:1.3em}
     .side-menu.open:after {content:""; display:block; position:absolute; left:0; top:0; width:38px; height:35px; background:url(../images/side-menu-mini.png) left -35px}
-    .side-menu ul {position:absolute; display:none; white-space:nowrap; left:0; top:-9px; background:#1ab157; border-left:31px solid #008652; padding:10px 20px 10px 16px}
+    .side-menu ul {position:absolute; display:none; width:253px; left:0; top:-9px; background:#1ab157; border-left:31px solid #008652; padding:10px 20px 10px 16px}
     .side-menu.open ul {display:block}
     .side-menu ul li {border-top:1px solid #1a9a4e; margin:0; padding:0}
     .side-menu ul li:first-child {border-top:none}
@@ -914,6 +932,8 @@ footer {background:#085f3d}
     .main-news-ctrl {display:none}
     .main-news-all {display:block}
     .main-news-all a {display:block; text-align:center; padding:8px 0 10px 0; font-size:1.2em}
+
+    .oopt-group-item {width:auto; display:block}
 
     .team-detail {margin-left:0; display:none}
     .team-main .team-detail {display:block}
