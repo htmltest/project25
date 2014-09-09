@@ -328,28 +328,6 @@
             e.preventDefault();
         });
 
-        // подгрузка новостей
-        $('.content').on('click', '.news-more a', function(e) {
-            $('.news').data('textLink', $('.news-more a').html());
-            $('.news-more').html('ЗАГРУЗКА...');
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('href'),
-                dataType: 'html',
-                cache: false
-            }).done(function(html) {
-                $('.news').append(html);
-                if ($('.news .news-more').length > 0) {
-                    $('.news-more').html('<a href="' + $('.news .news-more a').attr('href') + '">' + $('.news').data('textLink') + '</a>');
-                    $('.news .news-more').remove();
-                } else {
-                    $('.news-more').remove();
-                }
-            });
-
-            e.preventDefault();
-        });
-
         // слайдер в мероприятиях
         $('.events-slider').each(function() {
             var curSlider = $(this);
@@ -497,30 +475,6 @@
                 }
             });
         }
-
-        $('.content').on('click', '.tours-more a', function(e) {
-            $('.tours').data('textLink', $('.tours-more a').html());
-            $('.tours-more').html('ЗАГРУЗКА...');
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('href'),
-                dataType: 'html',
-                cache: false
-            }).done(function(html) {
-                $('.tours-list').append(html);
-                if ($(window).width() > 320) {
-                    resizeTours();
-                }
-                if ($('.tours .tours-more').length > 0) {
-                    $('.tours-more').html('<a href="' + $('.tours .tours-more a').attr('href') + '">' + $('.tours').data('textLink') + '</a>');
-                    $('.tours .tours-more').remove();
-                } else {
-                    $('.tours-more').remove();
-                }
-            });
-
-            e.preventDefault();
-        });
 
         // галереи
         $(window).bind('load resize', function() {
@@ -787,6 +741,39 @@
         function loadTerritory() {
             // сюда можно поместить обращение к серверу для получения данных для карты
         }
+
+        // выбор территорий
+        $('.subheader-map-link').click(function(e) {
+            $('.subheader-map-list').show();
+            e.preventDefault();
+        });
+
+        $('.subheader-map-list-link').click(function(e) {
+            $('.subheader-map-list').hide();
+            e.preventDefault();
+        });
+
+        $(document).click(function(e) {
+            if ($(e.target).parents().filter('.subheader-map-text').length == 0) {
+                $('.subheader-map-list').hide();
+            }
+        });
+
+        $('.footer-map-link').click(function(e) {
+            $('.footer-map-list').show();
+            e.preventDefault();
+        });
+
+        $('.footer-map-list-link').click(function(e) {
+            $('.footer-map-list').hide();
+            e.preventDefault();
+        });
+
+        $(document).click(function(e) {
+            if ($(e.target).parents().filter('.footer-map-text').length == 0) {
+                $('.footer-map-list').hide();
+            }
+        });
 
     });
 

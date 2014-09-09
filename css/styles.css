@@ -78,17 +78,27 @@ nav ul li.active a {background:#1ab157}
 .up-left {left:-157px}
 .up-right {right:-137px}
 
-.subheader {width:940px; margin:0 auto}
+.subheader {width:940px; margin:0 auto; position:relative; z-index:10}
 .subheader:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 
-.subheader-map {float:right; padding:12px 40px 14px 0}
+.subheader-map {float:right; padding:12px 40px 12px 0}
 .subheader-map-img {float:left; line-height:0}
-.subheader-map-text {float:left; padding:0 0 0 11px; font-size:.85em; line-height:1.3em}
-.subheader-map-title {font-family:HelveticaNeueCyrRoman, sans-serif; color:#b9c6be; padding:7px 0 0 0}
-.subheader-map-link {display:inline-block; vertical-align:top; text-decoration:none; color:#1ab157; padding:2px 0 0 0}
+.subheader-map-text {float:left; padding:0 0 0 11px; font-size:.85em; line-height:1.3em; position:relative}
+.subheader-map-title {font-family:HelveticaNeueCyrRoman, sans-serif; color:#b9c6be; padding:7px 0 0 0; position:relative}
+.subheader-map-link {display:inline-block; vertical-align:top; text-decoration:none; color:#1ab157; padding:2px 0 0 0; position:relative}
 .subheader-map-link span {display:inline-block; vertical-align:middle; background:url(../images/dots-1.png) repeat-x left bottom}
 .subheader-map-link:hover span {background:none}
 .subheader-map-link img {vertical-align:middle; margin:0 0 0 4px}
+.subheader-map-list {display:none; position:absolute; left:-11px; top:0; background:#f5faf7; width:179px; -webkit-box-shadow:0 0 10px rgba(0, 0, 0, .3); -moz-box-shadow:0 0 10px rgba(0, 0, 0, .3); box-shadow:0 0 10px rgba(0, 0, 0, .3); behavior:url(./js/PIE.htc)}
+.subheader-map-list-title {font-family:HelveticaNeueCyrRoman, sans-serif; color:#b9c6be; padding:7px 0 0 0; position:relative}
+.subheader-map-list-link {display:inline-block; vertical-align:top; text-decoration:none; color:#1ab157; padding:2px 0 0 0; position:relative}
+.subheader-map-list-link span {display:inline-block; vertical-align:middle; background:url(../images/dots-1.png) repeat-x left bottom}
+.subheader-map-list-link:hover span {background:none}
+.subheader-map-list-link img {vertical-align:middle; margin:0 0 0 4px}
+.subheader-map-list-top {background:#e2f0e8; padding:0 0 12px 22px}
+.subheader-map-list-inner ul {margin:0; padding:0; list-style:none}
+.subheader-map-list-inner ul li {margin:0; padding:9px 22px 10px 22px; border-top:1px solid #fff}
+.subheader-map-list-inner ul li:first-child {border:none}
 
 .subheader-address {float:right; font-size:.85em; line-height:1.3em; padding:19px 40px 0 0}
 .subheader-title {font-family:HelveticaNeueCyrRoman, sans-serif; color:#b9c6be}
@@ -105,15 +115,14 @@ nav ul li.active a {background:#1ab157}
 
 .side {float:left; width:180px; padding:41px 0 0 0}
 
-.side-menu {font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif; position:relative; margin:0 -25px 0 -5px}
-.side-menu ul {margin:0; padding:0; list-style:none}
-.side-menu ul li {margin:0 0 -1px 0; padding:0; border-top:1px solid #e5f3ed; position:relative}
+.side-menu {font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif; position:relative; margin:0 -25px -26px -5px}
+.side-menu ul {margin:0; padding:0 0 26px 0; list-style:none}
+.side-menu ul li {margin:0; padding:1px 0; border-top:1px solid #e5f3ed; position:relative}
 .side-menu ul li:first-child {border-top:none}
-.side-menu ul li a {color:#1ab157; text-decoration:none; position:relative; display:block; margin:-1px -5px 0 -5px; padding:9px 10px 10px 10px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
-.side-menu ul li a:hover,
-.side-menu ul li.active a {color:#fff; background:#1ab157}
-.side-menu ul li.active a {z-index:1}
-.side-menu ul li:hover a {z-index:2}
+.side-menu ul li a {color:#1ab157; text-decoration:none; position:relative; display:block; margin:0 -5px 0 -5px; padding:9px 10px 10px 10px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; behavior:url(./js/PIE.htc)}
+.side-menu ul li a:hover {background:#f5faf7; text-decoration:underline}
+.side-menu ul li.active a {color:#fff; background:#1ab157; text-decoration:none}
+.side-menu div {color:#c0c0c0; padding:0 0 9px 5px; margin:0 0 -2px 0; border-bottom:1px solid #e5f3ed}
 
 .side-item {margin:3em 0 4em 0}
 .side-item-photo {width:144px; height:144px; position:relative; line-height:0; overflow:hidden}
@@ -343,17 +352,12 @@ nav ul li.active a {background:#1ab157}
 .team-photo img {position:relative; -moz-border-radius:70px; -webkit-border-radius:70px; border-radius:70px; behavior:url(./js/PIE.htc)}
 .team-container {margin-left:160px}
 .team-container h3 {margin:0; padding:13px 0 0 0}
-.team-post {font-size:.9em}
-.team-contacts {font-size:.9em; margin:1em 0 0 0}
-.team-contacts p {margin:0}
-.team-contacts a {text-decoration:none}
-.team-contacts a:hover {text-decoration:underline}
-.team-time {font-size:.9em; margin:1em 0 0 0}
-.team-detail {margin:1em 0 0 160px; font-size:.9em; color:#808080}
-.team-row {width:100%; margin:2em 0}
+.team-container h2 {margin:0; padding:13px 0 0 0; color:#008652}
+.team-post {font-size:.9em; font-style:italic}
+.team-contacts {margin:1em 0 0 0}
+.team-row {width:100%; padding:1.7em 0; border-top:1px solid #e5f3ed}
+h2+.team-row {border:none; padding-top:.8em}
 .team-row:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.team-col {float:right; width:340px}
-.team-col:first-child {float:left; width:340px}
 
 .news-item {width:100%; border-top:1px solid #eaeaea; padding:26px 0 28px 0}
 .news-item:first-child {border-top:none; padding-top:0}
@@ -368,11 +372,6 @@ nav ul li.active a {background:#1ab157}
 .news-item-name a:hover {text-decoration:underline}
 .news-item-anonce {color:#000; margin:1em 0 0 0}
 .news-item-date {color:#f6861f; margin:1em 0 0 0; font-size:.9em}
-.news-more {border-top:1px solid #eaeaea; padding:26px 0 0 164px}
-.events-more {padding-left:0; text-align:center}
-.news-more a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; background:#f6861f; font-size:1.2em; font-family:HelveticaNeueCyrRoman, sans-serif; padding:8px 23px 10px 23px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; behavior:url(./js/PIE.htc)}
-.news-more a:hover {background:#f66b1f}
-.news-more a:active {background:#d45916}
 
 .news-detail-date {font:1.2em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#008652}
 .news-author {font-weight:bold; padding:1em 20px}
@@ -455,11 +454,7 @@ nav ul li.active a {background:#1ab157}
 .tour-info {margin:1.5em 0 0 0; font:.9em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
 .tour-info a {color:#f6861f}
 .tour-info-place {padding:0 0 0 20px; background:url(../images/tour-info-place.png) no-repeat left center}
-.tour-info-length {padding:0 0 0 20px; margin:.9em 0 0 0; background:url(../images/tour-info-length.png) no-repeat left center}
-.tours-more {text-align:center; padding:20px 0 0 0}
-.tours-more a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; background:#f6861f; font-size:1.2em; font-family:HelveticaNeueCyrRoman, sans-serif; padding:8px 23px 10px 23px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; behavior:url(./js/PIE.htc)}
-.tours-more a:hover {background:#f66b1f}
-.tours-more a:active {background:#d45916}
+.tour-info-length {float:left; padding:0 0 0 20px; background:url(../images/tour-info-length.png) no-repeat left center}
 
 .page-404 {width:662px; margin:0 auto -30px auto; padding:40px 0 0 0; position:relative}
 .page-404-img {line-height:0}
@@ -550,14 +545,22 @@ footer {background:#085f3d}
 
 .footer-map {float:left; padding:23px 0 0 67px}
 .footer-map-img {float:left; line-height:0}
-.footer-map-img img {display:none}
-.footer-map-img img:first-child {display:block}
-.footer-map-text {float:left; width:223px; padding:0 0 0 5px}
+.footer-map-text {float:left; width:223px; padding:0 0 0 5px; position:relative}
 .footer-map-title {font:.9em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#18ab62; padding:31px 0 0 0}
 .footer-map-link {display:inline-block; vertical-align:top; text-decoration:none; font-size:.9em; line-height:1.3em; color:#fff}
-.footer-map-link span {display:inline-block; vertical-align:middle; background:url(../images/dots-2.png) repeat-x left bottom}
+.footer-map-link span {vertical-align:middle; background:url(../images/dots-2.png) repeat-x left bottom}
 .footer-map-link:hover span {background:none}
 .footer-map-link img {vertical-align:middle; margin:0 0 0 4px}
+.footer-map-list {display:none; position:absolute; left:-16px; bottom:-11px; background:#0d9c55; width:179px; -webkit-box-shadow:0 0 10px rgba(0, 0, 0, .3); -moz-box-shadow:0 0 10px rgba(0, 0, 0, .3); box-shadow:0 0 10px rgba(0, 0, 0, .3); behavior:url(./js/PIE.htc)}
+.footer-map-list-link {display:inline-block; vertical-align:top; text-decoration:none; font-size:.9em; line-height:1.3em; color:#fff}
+.footer-map-list-link span {display:inline-block; vertical-align:middle; background:url(../images/dots-2.png) repeat-x left bottom}
+.footer-map-list-link:hover span {background:none}
+.footer-map-list-link img {vertical-align:middle; margin:0 0 0 4px}
+.footer-map-list-bottom {background:#008652; padding:9px 0 11px 22px}
+.footer-map-list-inner ul {margin:0; padding:0; list-style:none}
+.footer-map-list-inner ul li {margin:0; padding:9px 22px 10px 22px; border-top:1px solid #008652}
+.footer-map-list-inner ul li:first-child {border:none}
+.footer-map-list-inner ul li a {color:#fff}
 
 .footer-address {float:left; padding:23px 0 0 0}
 .footer-address-title {font:.9em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#18ab62; padding:31px 0 0 0}
@@ -641,6 +644,27 @@ footer {background:#085f3d}
 .oopt-group-item-photo {position:relative; line-height:0; padding:0 0 10px 0}
 .oopt-group-item-photo img {position:relative; -moz-border-radius:40px; -webkit-border-radius:40px; border-radius:40px; behavior:url(./js/PIE.htc)}
 
+.pager {border-top:1px solid #eaeaea; padding:29px 0 29px 164px}
+.pager-title {vertical-align:middle; display:inline-block; font-weight:bold; color:#f6861f; margin:0 3px 0 0}
+.pager a {display:inline-block; vertical-align:middle; width:20px; height:20px; font-size:.9em; position:relative; color:#fff; line-height:20px; text-align:center; background:#f6861f; text-decoration:none; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; behavior:url(./js/PIE.htc)}
+.pager a.active {width:26px; height:30px; line-height:30px; font-size:1em; color:#1ab157; background:url(../images/pager-active.png); -moz-border-radius:0; -webkit-border-radius:0; border-radius:0}
+.pager span,
+.pager strong {display:inline-block; vertical-align:middle; margin:0 1px; width:3px; height:3px; background:url(../images/pager-dots.png)}
+.pager strong {width:13px}
+.pager-tours {padding-left:0; text-align:center}
+
+.article-back {border-top:1px solid #a1c040; margin:2em 0; width:100%; padding:2em 0 0 0}
+.article-back:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+
+.likes {float:left; padding:2px 0 0 0}
+.article-back-print {float:right; padding:0 0 0 53px; min-height:23px; border-left:1px solid #fac28f; background:url(../images/print.png) no-repeat 21px center; line-height:23px; font-size:1.2em}
+.article-back-print a {color:#f6861f; text-decoration:none}
+.article-back-print a:hover {text-decoration:underline}
+.article-back-link {float:right; padding:0 18px 0 0; line-height:23px; font-size:1.2em}
+.article-back-link a {color:#f6861f; text-decoration:none}
+.article-back-link a:hover {text-decoration:underline}
+.article-back-link a span {font-family:arial, helvetica, sans-serif}
+
 @media (min-width:350px) and (max-width:780px) {
     html {min-width:768px}
 
@@ -717,7 +741,7 @@ footer {background:#085f3d}
 
     .footer-logo {display:none}
     .footer-map {float:left; padding-left:20px}
-    .footer-map-text {width:auto; padding:0 15px 0 5px}
+    .footer-map-text {padding:0 15px 0 5px}
     .footer-feedback-link {padding-right:20px}
 
     .copyrights {padding-left:20px; padding-right:20px}
@@ -747,9 +771,6 @@ footer {background:#085f3d}
     .oopt-group-item {width:134px}
 
     .team-row {margin:0}
-    .team-col {float:none; width:100%; margin:2em 0}
-    .team-col:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-    .team-col:first-child {float:none; width:100%}
 
     .mobile-visible {display:block}
 
@@ -763,8 +784,6 @@ footer {background:#085f3d}
     .container-news-inner .content {width:auto; float:none; padding:0 20px}
     .container-news h1,
     .container-news-inner h1 {text-align:center}
-
-    .container-news .news-more {text-align:center; padding-left:0}
 
     .events-slider-container {width:768px}
     .events-slider-container ul li {width:768px}
@@ -846,8 +865,9 @@ footer {background:#085f3d}
     .container-news-detail .side {display:none}
     .side-menu {width:38px; height:35px; background:url(../images/side-menu-mini.png); position:relative; margin:0; font-size:1em; line-height:1.3em}
     .side-menu.open:after {content:""; display:block; position:absolute; left:0; top:0; width:38px; height:35px; background:url(../images/side-menu-mini.png) left -35px}
-    .side-menu ul {position:absolute; display:none; width:253px; left:0; top:-9px; background:#1ab157; border-left:31px solid #008652; padding:10px 20px 10px 16px}
-    .side-menu.open ul {display:block}
+    .side-menu-inner {position:absolute; display:none; left:0; top:-9px; width:253px; background:#1ab157; border-left:31px solid #008652; padding:10px 20px 10px 16px}
+    .side-menu.open .side-menu-inner {display:block}
+    .side-menu div {border-bottom:1px solid #1a9a4e; color:#fff; padding-left:12px; padding-top:5px}
     .side-menu ul li {border-top:1px solid #1a9a4e; margin:0; padding:0}
     .side-menu ul li:first-child {border-top:none}
     .side-menu ul li a {color:#fff; text-decoration:none; position:relative; display:block; margin:0; padding:7px 15px 9px 12px; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0}
@@ -887,10 +907,8 @@ footer {background:#085f3d}
 
     .footer-map {float:none; background:#07462d; padding:24px 0 23px 0; width:100%}
     .footer-map:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-    .footer-map-img {float:right; line-height:0}
-    .footer-map-img img {display:block}
-    .footer-map-img img:first-child {display:none}
-    .footer-map-text {width:auto; padding:0 0 0 20px}
+    .footer-map-img {padding:0 0 0 10px}
+    .footer-map-text {width:195px; padding:0 0 0 20px}
     .footer-map-title {font-size:1.2em; padding:27px 0 0 0; margin-bottom:-5px}
     .footer-map-link {font-size:1.2em}
     .footer-map-link img {display:none}
@@ -935,20 +953,13 @@ footer {background:#085f3d}
 
     .oopt-group-item {width:auto; display:block}
 
-    .team-detail {margin-left:0; display:none}
-    .team-main .team-detail {display:block}
     .team-row {margin:0}
-    .team-col {float:none; width:100%; margin:2em 0}
-    .team-col:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-    .team-col:first-child {float:none; width:100%}
 
     .news-item-photo {display:none}
     .events .news-item-photo {float:none; display:block; margin:0 auto 27px auto}
     .news-item-container {margin-left:0}
     .news-item-name {font-size:1.2em}
     .news-item-anonce {font-size:.9em}
-    .news-more {padding-left:0}
-    .news-more a {display:block; text-align:center; padding-left:0; padding-right:0}
 
     .mobile-visible {display:block}
 
@@ -972,12 +983,14 @@ footer {background:#085f3d}
     .events-detail-info:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
     .events-detail-info div {margin:0 30px 0 0; display:block; float:left; white-space:nowrap}
 
+    .tour-info-length {float:none}
+    .events-item-place {float:none; margin:0}
+
     .tours {width:100%}
     .tours-list {width:100%; margin:0}
     .tour {float:none; width:auto}
     .tour-wrap {border-left:none}
     .tours-list-end {display:none}
-    .tours-more a {display:block; width:100%; padding-left:0; padding-right:0}
 
     .page-404 {width:276px; padding:70px 0 0 0}
     .page-404-title {font-size:1.7em}
@@ -999,6 +1012,11 @@ footer {background:#085f3d}
     .contacts-col {float:none; width:100%; padding:0}
 
     .map-objects {margin-left:-140px; width:280px}
+
+    .pager {padding-left:10px}
+    .likes {float:none; padding:0 0 10px 0}
+    .article-back-print {float:none; padding:0 0 10px 32px; border-left:none; background-position:left center}
+    .article-back-link {float:none; padding:0 0 10px 0}
 }
 
 body.no-image img {visibility:hidden}
