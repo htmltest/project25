@@ -51,7 +51,7 @@ header {position:relative}
 .header-fixed .header-wrap {position:fixed; left:0; top:0; width:100%; z-index:20}
 .header-inner {height:53px; width:940px; margin:0 auto; position:relative}
 .header-shadow {display:none; position:fixed; left:0; top:53px; width:100%; height:13px; background:url(../images/header-shadow.png)}
-.header-fixed .header-shadow {display:block}
+.header-fixed .header-shadow {display:block; z-index:20}
 
 .logo {position:absolute; left:-43px; top:0; width:219px; height:53px; background:url(../images/logo-bg.png); line-height:0}
 .header-fixed .logo {background:none}
@@ -163,11 +163,12 @@ nav ul li.active a {background:#1ab157}
 .content ol li {margin:0; padding:0}
 .content ol li:before {content:counter(point)". "; counter-increment:point 1; font-weight:bold; color:#000}
 .content table {width:100%; border-collapse:collapse; margin:2em 0; border-bottom:2px solid #f6861f}
-.content table th {color:#fff; font:normal 1.3em/1em HelveticaNeueCyrRoman, sans-serif; vertical-align:middle; padding:17px 20px 19px 20px; text-align:center; background:#f6861f}
+.content table th {color:#fff; font-family:HelveticaNeueCyrRoman, sans-serif; vertical-align:middle; padding:17px 20px 19px 20px; text-align:center; background:#f6861f}
 .content table th:first-child {text-align:left}
 .content table td {vertical-align:middle; padding:7px 20px 9px 20px; text-align:center; color:#333; border-top:1px solid #d6d6d6}
 .content table tbody tr:first-child td {border-top:none}
-.content table td:first-child {text-align:left; font-size:1.3em; line-height:1em; color:#000}
+.content table td:first-child {text-align:left}
+.content table p {margin:0; padding:0}
 .content form {margin:1em 0; padding:0}
 
 .text-old {text-decoration:line-through; color:#898989}
@@ -646,8 +647,9 @@ footer {background:#085f3d}
 
 .pager {border-top:1px solid #eaeaea; padding:29px 0 29px 164px}
 .pager-title {vertical-align:middle; display:inline-block; font-weight:bold; color:#f6861f; margin:0 3px 0 0}
-.pager a {display:inline-block; vertical-align:middle; width:20px; height:20px; font-size:.9em; position:relative; color:#fff; line-height:20px; text-align:center; background:#f6861f; text-decoration:none; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; behavior:url(./js/PIE.htc)}
-.pager a.active {width:26px; height:30px; line-height:30px; font-size:1em; color:#1ab157; background:url(../images/pager-active.png); -moz-border-radius:0; -webkit-border-radius:0; border-radius:0}
+.pager a {display:inline-block; vertical-align:middle; width:20px; height:20px; font-size:12px; position:relative; color:#fff; line-height:20px; text-align:center; background:#f6861f; text-decoration:none; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; behavior:url(./js/PIE.htc)}
+.pager a:hover {border:3px solid #1ab157; background:#fff; color:#1ab157; margin:0 -3px; -moz-border-radius:13px; -webkit-border-radius:13px; border-radius:13px}
+.pager a.active {width:26px; height:30px; margin:0; line-height:30px; font-size:14px; color:#1ab157; border:none; background:url(../images/pager-active.png); -moz-border-radius:0; -webkit-border-radius:0; border-radius:0}
 .pager span,
 .pager strong {display:inline-block; vertical-align:middle; margin:0 1px; width:3px; height:3px; background:url(../images/pager-dots.png)}
 .pager strong {width:13px}
@@ -657,10 +659,11 @@ footer {background:#085f3d}
 .article-back:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 
 .likes {float:left; padding:2px 0 0 0}
-.article-back-print {float:right; padding:0 0 0 53px; min-height:23px; border-left:1px solid #fac28f; background:url(../images/print.png) no-repeat 21px center; line-height:23px; font-size:1.2em}
+.article-back-print {float:right; padding:0 0 0 53px; min-height:23px; background:url(../images/print.png) no-repeat 21px center; line-height:23px; font-size:1.2em}
 .article-back-print a {color:#f6861f; text-decoration:none}
 .article-back-print a:hover {text-decoration:underline}
 .article-back-link {float:right; padding:0 18px 0 0; line-height:23px; font-size:1.2em}
+.article-back-print+.article-back-link {border-right:1px solid #fac28f}
 .article-back-link a {color:#f6861f; text-decoration:none}
 .article-back-link a:hover {text-decoration:underline}
 .article-back-link a span {font-family:arial, helvetica, sans-serif}

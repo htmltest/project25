@@ -455,6 +455,7 @@
                     ymaps.ready(init);
 
                     var myMap;
+                    var myMapPoints = new Array();
 
                     function init () {
                         myMap = new ymaps.Map('map', {
@@ -604,9 +605,11 @@
                         myGeocoder.then(
                             function (res) {
                                 var coords = res.geoObjects.get(0).geometry.getCoordinates();
-                                myPlacemark = new ymaps.Placemark(coords, {
+
+                                myMapPoints[0] = new ymaps.Placemark(coords, {
                                     balloonHeader: curName,
-                                    balloonContent: curContent
+                                    balloonContent: curContent,
+                                    hintContent: curName
                                 }, {
                                     balloonLayout: MyBalloonLayout,
                                     balloonContentLayout: MyBalloonContentLayout,
@@ -617,13 +620,14 @@
                                     iconImageSize: [53, 52],
                                     iconImageOffset: [-27, -26]
                                 });
-                                myMap.geoObjects.add(myPlacemark);
+                                myMap.geoObjects.add(myMapPoints[0]);
                             }
                         );
 
                         $('.contacts-cols-all .contacts-col').each(function() {
                             var curName = $(this).find('h3').html();
                             var curContent = $(this).find('table').clone();
+                            var curIndex = $('.contacts-address-link').index($(this).find('.contacts-address-link'));
                             curContent.find('.contacts-address-link').each(function() {
                                 $(this).parent().html($(this).html());
                             });
@@ -632,9 +636,10 @@
                             myGeocoder.then(
                                 function (res) {
                                     var coords = res.geoObjects.get(0).geometry.getCoordinates();
-                                    myPlacemark = new ymaps.Placemark(coords, {
+                                    myMapPoints[curIndex] = new ymaps.Placemark(coords, {
                                         balloonHeader: curName,
-                                        balloonContent: curContent
+                                        balloonContent: curContent,
+                                        hintContent: curName
                                     }, {
                                         balloonLayout: MyBalloonLayout,
                                         balloonContentLayout: MyBalloonContentLayout,
@@ -645,13 +650,17 @@
                                         iconImageSize: [26, 25],
                                         iconImageOffset: [-13, -13]
                                     });
-                                    myMap.geoObjects.add(myPlacemark);
+                                    myMap.geoObjects.add(myMapPoints[curIndex]);
                                 }
                             );
                         });
 
                         $('.contacts-address-link').click(function(e) {
                             $.scrollTo($('.map-wrap'), 500, {offset: {'top': -53}});
+                            var curIndex = $('.contacts-address-link').index($(this));
+                            if (myMapPoints[curIndex]) {
+                                myMapPoints[curIndex].balloon.open();
+                            }
                             e.preventDefault();
                         });
 
