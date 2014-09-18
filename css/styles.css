@@ -16,7 +16,7 @@ img {border:none}
 
 .wrapper {min-width:1000px; width:100%; position:relative; overflow:hidden}
 
-.top {position:absolute; left:50%; top:24px; width:940px; margin:0 0 0 -470px}
+.top {position:absolute; left:50%; top:24px; width:940px; margin:0 0 0 -470px; z-index:11}
 .top-icon {position:absolute; left:0; top:0; width:50px; height:29px; background:url(../images/top-panel.png); cursor:pointer}
 
 .top-panel {display:none; position:absolute; background:#fff; left:50px; top:-24px; height:29px; padding:16px 0 24px 0; width:714px; z-index:6}
@@ -144,32 +144,58 @@ nav ul li.active a {background:#1ab157}
 .side-item-link-2:hover {background:#208600}
 .side-item-link-2:active {background:#1b6204}
 
-.content {float:right; width:700px}
-.content h1 {margin:1em 0 .6em 0; padding:0; font:normal 2.6em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
-.content h2 {margin:1.5em 0 .8em 0; padding:0; font:normal 1.7em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
-.content h3 {margin:1.9em 0 1em 0; padding:0; font:normal 1.3em/1em HelveticaNeueCyrRoman, sans-serif; color:#008652}
-.content h2+h3 {margin-top:1em}
-.content h4 {margin:2.6em 0 1.2em 0; padding:0; font:normal 1em/1.3em HelveticaNeueCyrBold, sans-serif; color:#1ab157}
-.content h3+h4 {margin-top:1em}
-.content p {margin:1em 0; padding:0}
-.content blockquote {font-style:italic; color:#000; background:#f6fcfa; padding:16px 20px 20px 20px; margin:1.5em 0}
-.content blockquote strong {font-style:normal}
-.content hr {height:1px; background:#a1c040; border:none; margin:2em 0 3.3em 0; padding:0}
-.content ul {margin:1em 0; padding:0; list-style:none}
-.content ul li {margin:1.3em 0; padding:0 0 0 18px; background:url(../images/li.png) no-repeat left .3em}
-.content ul li ul {margin:0}
-.content ul li ul li {margin:.5em 0; background:url(../images/lili.png) no-repeat 3px .3em}
-.content ol {margin:1em 0; padding:0 0 0 18px; list-style:none; counter-reset:point}
-.content ol li {margin:0; padding:0}
-.content ol li:before {content:counter(point)". "; counter-increment:point 1; font-weight:bold; color:#000}
-.content table {width:100%; border-collapse:collapse; margin:2em 0; border-bottom:2px solid #f6861f}
-.content table th {color:#fff; font-family:HelveticaNeueCyrRoman, sans-serif; vertical-align:middle; padding:17px 20px 19px 20px; text-align:center; background:#f6861f}
-.content table th:first-child {text-align:left}
-.content table td {vertical-align:middle; padding:7px 20px 9px 20px; text-align:center; color:#333; border-top:1px solid #d6d6d6}
-.content table tbody tr:first-child td {border-top:none}
-.content table td:first-child {text-align:left}
-.content table p {margin:0; padding:0}
-.content form {margin:1em 0; padding:0}
+.wrapper .content,
+.window .content {float:right; width:700px}
+.wrapper .content h1,
+.window .content h1 {margin:1em 0 .6em 0; padding:0; font:normal 2.6em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
+.wrapper .content h2,
+.window .content h2 {margin:1.5em 0 .8em 0; padding:0; font:normal 1.7em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
+.wrapper .content h3,
+.window .content h3 {margin:1.9em 0 1em 0; padding:0; font:normal 1.3em/1em HelveticaNeueCyrRoman, sans-serif; color:#008652}
+.wrapper .content h2+h3,
+.window .content h2+h3 {margin-top:1em}
+.wrapper .content h4,
+.window .content h4 {margin:2.6em 0 1.2em 0; padding:0; font:normal 1em/1.3em HelveticaNeueCyrBold, sans-serif; color:#1ab157}
+.wrapper .content h3+h4,
+.window .content h3+h4 {margin-top:1em}
+.wrapper .content p,
+.window .content p {margin:1em 0; padding:0}
+.wrapper .content blockquote,
+.window .content blockquote {font-style:italic; color:#000; background:#f6fcfa; padding:16px 20px 20px 20px; margin:1.5em 0}
+.wrapper .content blockquote strong,
+.window .content blockquote strong {font-style:normal}
+.wrapper .content hr,
+.window .content hr {height:1px; background:#a1c040; border:none; margin:2em 0 3.3em 0; padding:0}
+.wrapper .content ul,
+.window .content ul {margin:1em 0; padding:0; list-style:none}
+.wrapper .content ul li,
+.window .content ul li {margin:1.3em 0; padding:0 0 0 18px; background:url(../images/li.png) no-repeat left .3em}
+.wrapper .content ul li ul,
+.window .content ul li ul {margin:0}
+.wrapper .content ul li ul li,
+.window .content ul li ul li {margin:.5em 0; background:url(../images/lili.png) no-repeat 3px .3em}
+.wrapper .content ol,
+.window .content ol {margin:1em 0; padding:0 0 0 18px; list-style:none; counter-reset:point}
+.wrapper .content ol li,
+.window .content ol li {margin:0; padding:0}
+.wrapper .content ol li:before,
+.window .content ol li:before {content:counter(point)". "; counter-increment:point 1; font-weight:bold; color:#000}
+.wrapper .content table,
+.window .content table {width:100%; border-collapse:collapse; margin:2em 0; border-bottom:2px solid #f6861f}
+.wrapper .content table th,
+.window .content table th {color:#fff; font-family:HelveticaNeueCyrRoman, sans-serif; vertical-align:middle; padding:17px 20px 19px 20px; text-align:center; background:#f6861f}
+.wrapper .content table th:first-child,
+.window .content table th:first-child {text-align:left}
+.wrapper .content table td,
+.window .content table td {vertical-align:middle; padding:7px 20px 9px 20px; text-align:center; color:#333; border-top:1px solid #d6d6d6}
+.wrapper .content table tbody tr:first-child td,
+.window .content table tbody tr:first-child td {border-top:none}
+.wrapper .content table td:first-child,
+.window .content table td:first-child {text-align:left}
+.wrapper .content table p,
+.window .content table p {margin:0; padding:0}
+.wrapper .content form,
+.window .content form {margin:1em 0; padding:0}
 
 .text-old {text-decoration:line-through; color:#898989}
 
@@ -222,8 +248,8 @@ nav ul li.active a {background:#1ab157}
 .fileinput-button:hover span {background:none}
 .fileinput-button input {position:absolute; top:0; right:0; margin:0; opacity:0; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); background:url(../images/blank.gif); font-size:200px; cursor:pointer}
 .files-list {margin:1em 0}
-.files-list table {border-collapse:collapse; margin:0; border:none; width:auto}
-.files-list table td {padding:6px 0; vertical-align:middle; border:none; text-align:left}
+.wrapper .content .files-list table {border-collapse:collapse; margin:0; border:none; width:auto}
+.wrapper .content .files-list table td {padding:6px 0; vertical-align:middle; border:none; text-align:left}
 .files-item-icon {width:23px; height:24px}
 .files-item-icon-xls {background:url(../images/file-icon-xls.png)}
 .files-item-icon-pdf {background:url(../images/file-icon-pdf.png)}
@@ -391,8 +417,8 @@ h2+.team-row {border:none; padding-top:.8em}
 .back-link span {font-family:arial, helvetica, sans-serif}
 .back-link:hover {text-decoration:underline}
 
-.container-wide .content {float:none; width:100%}
-.container-wide .content h1 {text-align:center}
+.wrapper .container-wide .content {float:none; width:100%}
+.wrapper .container-wide .content h1 {text-align:center}
 
 .events-slider {width:100%; position:relative; overflow:hidden; background:#008652 url(../images/events-slider.png) no-repeat center bottom; padding:17px 0; margin:0 0 2em 0}
 .events-slider-container {position:relative; width:940px; overflow:hidden; margin:0 auto}
@@ -722,7 +748,8 @@ footer {background:#085f3d}
     .side-menu {padding-left:20px}
     .side-item-link {font-size:.9em}
 
-    .content {width:545px}
+    .wrapper .content,
+    .window .content {width:545px}
 
     .form-input input {width:525px}
     .form-input label.error {display:none !important}
@@ -749,6 +776,7 @@ footer {background:#085f3d}
 
     .copyrights {padding-left:20px; padding-right:20px}
 
+    .wrapper .content,
     .window .content {padding-left:10px; padding-right:10px; width:300px}
 
     .slider {width:748px}
@@ -777,14 +805,14 @@ footer {background:#085f3d}
 
     .mobile-visible {display:block}
 
-    .container-news-detail .content h1 {font-size:1.7em; line-height:1em; margin-left:0; text-align:left}
+    .wrapper .container-news-detail .content h1 {font-size:1.7em; line-height:1em; margin-left:0; text-align:left}
     .news-detail-date {font-size:1em}
-    .container-news-detail .content h1.tours-title {text-align:center}
+    .wrapper .container-news-detail .content h1.tours-title {text-align:center}
 
     .container-news .side,
     .container-news-inner .side {display:none}
-    .container-news .content,
-    .container-news-inner .content {width:auto; float:none; padding:0 20px}
+    .wrapper .container-news .content,
+    .wrapper .container-news-inner .content {width:auto; float:none; padding:0 20px}
     .container-news h1,
     .container-news-inner h1 {text-align:center}
 
@@ -879,11 +907,11 @@ footer {background:#085f3d}
     .side-menu ul li.active a {font-family:HelveticaNeueCyrBold, sans-serif}
     .side-item {display:none}
 
-    .content {width:100%; float:none}
-    .content h1 {margin-left:48px}
-    .content ul li {background:url(../images/li-mini.png) no-repeat left .5em}
-    .content ul li ul li {background:url(../images/lili-mini.png) no-repeat left .5em}
-    .content table {width:auto; overflow:auto}
+    .wrapper .content {width:100%; float:none}
+    .wrapper .content h1 {margin-left:48px}
+    .wrapper .content ul li {background:url(../images/li-mini.png) no-repeat left .5em}
+    .wrapper .content ul li ul li {background:url(../images/lili-mini.png) no-repeat left .5em}
+    .wrapper .content table {width:auto; overflow:auto}
 
     .form-input input {width:280px}
     .form-input label.error {display:none !important}
