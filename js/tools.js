@@ -737,6 +737,10 @@
             }
         });
 
+        $('.map-objects-list').each(function() {
+            $(this).find('ul').jScrollPane();
+        });
+
         // загрузка територий по данным формы
         function loadTerritory() {
             // сюда можно поместить обращение к серверу для получения данных для карты
