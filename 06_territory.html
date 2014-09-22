@@ -219,7 +219,7 @@
 
             <div class="map-wrap">
                 <div class="map map-contacts" id="map"></div>
-                <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+                <script src="http://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
                 <script type="text/javascript">
                     ymaps.ready(init);
 
@@ -228,10 +228,9 @@
                     function init () {
                         myMap = new ymaps.Map('map', {
                             center: [56.136, 40.390],
-                            zoom: 11
+                            zoom: 11,
+                            controls: ['zoomControl']
                         });
-
-                        myMap.controls.add('zoomControl');
 
                         // Создание макета балуна
                         var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
@@ -368,6 +367,7 @@
                                     balloonContentLayout: MyBalloonContentLayout,
                                     balloonPanelMaxMapArea: 0,
                                     balloonShadow: false,
+                                    iconLayout: 'default#image',
                                     iconImageHref: 'images/map-icon-territory.png',
                                     iconImageSize: [21, 20],
                                     iconImageOffset: [-11, -10]
