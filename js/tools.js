@@ -735,10 +735,13 @@
                 $('.territory-objects-tab').removeClass('active');
                 $('.territory-objects-tab').eq(curIndex).addClass('active');
             }
+            $('.map-objects-list li:first').remove();
         });
 
         $('.map-objects-list').each(function() {
-            $(this).find('ul').jScrollPane();
+            $(this).find('ul').jScrollPane({
+                autoReinitialise: true
+            });
         });
 
         // загрузка територий по данным формы

@@ -455,6 +455,7 @@ h2+.team-row {border:none; padding-top:.8em}
 .map-wrap {width:100%; margin:2em 0 -151px 0; position:relative; overflow:hidden}
 .map {width:100%; height:493px; position:relative}
 .map-contacts {height:670px}
+.map-territory {height:643px; border-bottom:15px solid #008652}
 .map-bottom {position:absolute; left:0; bottom:0; width:100%; height:151px; background:url(../images/map-bottom.png) no-repeat center top}
 
 .events-back {text-align:center; position:relative; padding:30px 0 0 0}
@@ -494,10 +495,10 @@ h2+.team-row {border:none; padding-top:.8em}
 .contacts-cols-inner {width:960px; margin-left:-20px}
 .contacts-cols-inner:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 .contacts-col {float:left; width:440px; padding:0 20px 0 20px; border-bottom:1px solid #eaeaea}
-.contacts-col table {width:100%; border-collapse:collapse; margin:1.5em 0 2.2em 0; border-bottom:none}
-.contacts-col table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; border-top:none; font-weight:bold; width:100%}
-.contacts-col table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
-.contacts-col table tr:first-child td {padding-top:.35em; padding-bottom:.35em; line-height:1.3em}
+.wrapper .contacts-col table {width:100%; border-collapse:collapse; margin:1.5em 0 2.2em 0; border-bottom:none}
+.wrapper .contacts-col table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; border-top:none; font-weight:bold; width:100%}
+.wrapper .contacts-col table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
+.wrapper .contacts-col table tr:first-child td {padding-top:.35em; padding-bottom:.35em; line-height:1.3em}
 .contacts-address-link {text-decoration:none; background:url(../images/dots-1.png) repeat-x left bottom}
 .contacts-address-link:hover {background:none}
 
@@ -516,7 +517,6 @@ h2+.team-row {border:none; padding-top:.8em}
 .popover .close {display:block; position:absolute; right:-15px; top:-15px; width:29px; height:29px; background:url(../images/window-close.png)}
 .popover .close:hover {background-position:left -29px}
 .popover .close:active {background-position:left -58px}
-
 
 .gallery {width:960px; margin:2em 0 0 -10px}
 .gallery:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
