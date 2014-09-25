@@ -1,0 +1,25 @@
+.subheader-feedback-link,
+.subheader-map,
+.top,
+.top-social,
+nav,
+.up,
+.header-shadow,
+.header-fixed .header-shadow,
+.mobile-visible,
+.side,
+.article-back,
+.header-fixed .logo-mini,
+.bottom,
+.footer-top,
+.events-back,
+form {display:none}
+
+.logo {top:-40px}
+
+.header-fixed {padding:0}
+.header-fixed .header-wrap {position:relative}
+
+.header-fixed .logo-main {display:block}
+
+.wrapper .content {float:none; width:auto}

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/chosen.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
         <!--[if lt IE 9]>
             <script src="js/respond.min.js"></script>
         <![endif]-->
@@ -28,6 +29,7 @@
         <script src="js/jquery.fileupload/js/jquery.fileupload-ui.js"></script>
         <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
         <script src="js/jquery.cookie.js"></script>
+        <script src="js/jquery.maskedinput.min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -449,8 +451,8 @@
             <!-- container END -->
 
             <div class="map-wrap">
-                <div class="map map-contacts" id="map"></div>
-                <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+                <div class="map map-territory" id="map"></div>
+                <script src="http://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
                 <script type="text/javascript">
                     ymaps.ready(init);
 
@@ -460,14 +462,13 @@
                     function init () {
                         myMap = new ymaps.Map('map', {
                             center: [56.136, 40.390],
-                            zoom: 10
+                            zoom: 10,
+                            controls: ['zoomControl']
                         });
-
-                        myMap.controls.add('zoomControl');
 
                         // Создание макета балуна
                         var MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-                            '<div class="popover"><div class="arrow"></div>' +
+                            '<div class="popover popover-territory"><div class="arrow"></div><a class="close" href="#"></a>' +
                                 '$[[options.contentLayout]]' +
                                 '</div>', {
                                 /**
@@ -526,7 +527,7 @@
                                  */
                                 applyElementOffset: function () {
                                     this._$element.css({
-                                        left: -(this._$element[0].offsetWidth / 2),
+                                        left: -(this._$element.find('.arrow')[0].offsetWidth + 10),
                                         top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
                                     });
                                 },
@@ -616,6 +617,7 @@
                                     balloonPanelMaxMapArea: 0,
                                     hideIconOnBalloonOpen: false,
                                     balloonShadow: false,
+                                    iconLayout: 'default#image',
                                     iconImageHref: 'images/map-icon-contacts-main.png',
                                     iconImageSize: [53, 52],
                                     iconImageOffset: [-27, -26]
@@ -646,6 +648,7 @@
                                         balloonPanelMaxMapArea: 0,
                                         hideIconOnBalloonOpen: false,
                                         balloonShadow: false,
+                                        iconLayout: 'default#image',
                                         iconImageHref: 'images/map-icon-contacts-all.png',
                                         iconImageSize: [26, 25],
                                         iconImageOffset: [-13, -13]
@@ -666,7 +669,6 @@
 
                     }
                 </script>
-                <div class="map-bottom"></div>
             </div>
 
             <!-- bottom -->

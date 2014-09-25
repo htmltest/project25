@@ -61,7 +61,7 @@ header {position:relative}
 .header-fixed .logo-mini {display:block; position:absolute; left:43px; top:13px}
 .logo-mobile {display:none}
 
-.top-social {position:absolute; left:95px; top:-52px; line-height:0}
+.top-social {position:absolute; left:95px; top:-52px; line-height:0; z-index:12}
 .top-social a {float:left; margin:0 3px 0 0}
 .top-social-ipad {display:none}
 .header-fixed .top-social {left:143px; top:16px}
@@ -378,8 +378,8 @@ nav ul li.active a {background:#1ab157}
 .team-photo {float:left; line-height:0; width:140px; position:relative}
 .team-photo img {position:relative; -moz-border-radius:70px; -webkit-border-radius:70px; border-radius:70px; behavior:url(./js/PIE.htc)}
 .team-container {margin-left:160px}
-.team-container h3 {margin:0; padding:13px 0 0 0}
-.team-container h2 {margin:0; padding:13px 0 0 0; color:#008652}
+.wrapper .content .team-container h3 {margin:0; padding:3px 0 0 0}
+.wrapper .content .team-container h2 {margin:0; padding:3px 0 0 0; color:#008652}
 .team-post {font-size:.9em; font-style:italic}
 .team-contacts {margin:1em 0 0 0}
 .team-row {width:100%; padding:1.7em 0; border-top:1px solid #e5f3ed}
@@ -422,10 +422,11 @@ h2+.team-row {border:none; padding-top:.8em}
 
 .events-slider {width:100%; position:relative; overflow:hidden; background:#008652 url(../images/events-slider.png) no-repeat center bottom; padding:17px 0; margin:0 0 2em 0}
 .events-slider-container {position:relative; width:940px; overflow:hidden; margin:0 auto}
-.events-slider-container ul {margin:0; padding:0; position:relative; width:9999px; list-style:none}
-.events-slider-container ul li {float:left; width:940px; margin:0; padding:0}
+.events-slider-container ul {margin:0; padding:0; position:relative; width:940px; list-style:none}
+.events-slider-container ul li {display:none; position:relative; width:940px; margin:0; padding:0}
+.events-slider-container ul li:first-child {display:block}
 .events-slider-item {display:table; width:100%}
-.events-slider-item-text {display:table-cell; vertical-align:middle}
+.events-slider-item-text {display:table-cell; vertical-align:middle; padding:0 0 42px 0}
 .events-slider-item-photo {display:table-cell; vertical-align:middle; line-height:0; vertical-align:middle; width:254px; padding:0 0 0 70px}
 .events-slider-item-photo img {position:relative; -moz-border-radius:127px; -webkit-border-radius:127px; border-radius:127px; behavior:url(./js/PIE.htc)}
 .events-slider-item-title {text-transform:uppercase; color:#fff; font:1.3em/1.6em HelveticaNeueCyrRoman, sans-serif}
@@ -434,17 +435,17 @@ h2+.team-row {border:none; padding-top:.8em}
 .events-slider-item-title a:hover {text-decoration:underline}
 .events-slider-item-info {text-transform:uppercase; color:#c8f0e0; width:100%; margin:1em 0 2px 0}
 .events-slider-item-info:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.events-slider-item-date {float:left; padding:0 0 0 17px; background:url(../images/events-slider-item-date.png) no-repeat left center}
-.events-slider-item-place {float:left; padding:0 0 0 17px; margin:0 0 0 34px; background:url(../images/events-slider-item-place.png) no-repeat left center}
+.events-slider-item-date {float:left; padding:0 0 0 17px; margin:0 34px 0 0; background:url(../images/events-slider-item-date.png) no-repeat left .3em}
+.events-slider-item-place {float:left; padding:0 0 0 17px; background:url(../images/events-slider-item-place.png) no-repeat left .3em}
 .events-slider-item-anonce {color:#fff; padding:17px 0 0 0}
-.events-slider-item-ctrl {position:relative; font-size:0; line-height:0; letter-spacing:-1px; padding:26px 0 0 0}
-.events-slider-item-ctrl a {display:inline-block; position:relative; width:12px; height:12px; margin:0 3px; border:2px solid #fff; background:url(../images/blank.gif); -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; behavior:url(./js/PIE.htc)}
-.events-slider-item-ctrl a.active {background:#fff}
+.events-slider-ctrl {position:absolute; left:0; bottom:0; font-size:0; line-height:0; letter-spacing:-1px}
+.events-slider-ctrl a {display:inline-block; position:relative; width:12px; height:12px; margin:0 3px; border:2px solid #fff; background:url(../images/blank.gif); -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; behavior:url(./js/PIE.htc)}
+.events-slider-ctrl a.active {background:#fff}
 
 .events-item-info {color:#f6861f; width:100%; margin:1em 0 1.5em 0}
 .events-item-info:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.events-item-date {float:left; padding:0 0 0 17px; background:url(../images/events-item-date.png) no-repeat left center}
-.events-item-place {float:left; padding:0 0 0 17px; margin:0 0 0 34px; background:url(../images/events-item-place.png) no-repeat left center}
+.events-item-date {float:left; padding:0 0 0 17px; margin:0 34px 0 0; background:url(../images/events-item-date.png) no-repeat left center}
+.events-item-place {float:left; padding:0 0 0 17px; background:url(../images/events-item-place.png) no-repeat left center}
 
 .events-detail-info {width:100%; font-size:1.7em; line-height:1.3em; margin:1em 0 1.5em 0; text-align:center}
 .events-detail-date {display:inline-block; vertical-align:middle; padding:0 0 0 30px; margin:0 15px; background:url(../images/events-detail-date.png) no-repeat left .25em}
@@ -490,11 +491,15 @@ h2+.team-row {border:none; padding-top:.8em}
 .page-404-title {font:2.6em/1em HelveticaNeueCyrRoman, sans-serif; color:#f6861f; text-align:center; margin:2em 0 0 0}
 .page-404-text {font-size:1.3em; line-height:1em; text-align:center; padding:10px 0 0 0}
 
-.contacts-cols {width:100%; position:relative; overflow:hidden; margin-top:-16px}
+.contacts-cols {width:100%; position:relative; overflow:hidden}
 .contacts-cols-all:after {content:""; display:block; width:100%; height:1px; background:#fff; position:absolute; left:0; bottom:0}
-.contacts-cols-inner {width:960px; margin-left:-20px}
+.contacts-cols-inner {width:960px; margin-left:-20px; margin-top:-16px; font-size:0; line-height:0; letter-spacing:-1px; border-bottom:1px solid #eaeaea}
+.contacts-cols-all .contacts-cols-inner {border-bottom:none}
 .contacts-cols-inner:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.contacts-col {float:left; width:440px; padding:0 20px 0 20px; border-bottom:1px solid #eaeaea}
+.contacts-col {display:inline-block; vertical-align:top; width:440px; padding:0 20px 0 20px; letter-spacing:0; font-size:14px; line-height:1.3em}
+.contacts-col+.contacts-col+.contacts-col {border-top:1px solid #eaeaea}
+body.font-mini .contacts-col {font-size:10px}
+body.font-max .contacts-col {font-size:18px}
 .wrapper .contacts-col table {width:100%; border-collapse:collapse; margin:1.5em 0 2.2em 0; border-bottom:none}
 .wrapper .contacts-col table td {vertical-align:top; padding:0; text-align:left; font-size:1em; line-height:2em; color:#000; border-top:none; font-weight:bold; width:100%}
 .wrapper .contacts-col table td:first-child {font-size:1em; line-height:2em; color:#393939; padding:0 10px 0 0; white-space:nowrap; width:auto; font-weight:normal}
@@ -656,7 +661,7 @@ footer {background:#085f3d}
 
 .map-objects {position:absolute; left:50%; top:35px; margin-left:-470px; width:300px; background:#fff; -webkit-box-shadow:0 0 5px rgba(0, 0, 0, .4); -moz-box-shadow:0 0 5px rgba(0, 0, 0, .4); box-shadow:0 0 5px rgba(0, 0, 0, .4); z-index:9}
 .map-objects-title {color:#fff; font:1.7em/1em HelveticaNeueCyrRoman, sans-serif; background:#008652; padding:14px 0 16px 20px}
-.map-objects-list {padding:9px 7px 19px 20px; font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif}
+.map-objects-list {padding:9px 7px 7px 20px; font:.9em/1.4em HelveticaNeueCyrRoman, sans-serif}
 .map-objects-list ul {margin:0; padding:0; list-style:0; position:relative; overflow:hidden; max-height:305px}
 .map-objects-list ul li {margin:0 13px 0 0; padding:8px 0 9px 0; border-top:1px solid #f2f2f2}
 .map-objects-list ul li:first-child {border-top:none}
@@ -699,7 +704,7 @@ footer {background:#085f3d}
 .article-back-link a:hover {text-decoration:underline}
 .article-back-link a span {font-family:arial, helvetica, sans-serif}
 
-@media (min-width:350px) and (max-width:780px) {
+@media (min-width:350px) and (max-width:780px) and (not print) {
     html {min-width:768px}
 
     body {min-width:768px}
@@ -852,7 +857,7 @@ footer {background:#085f3d}
     .item-gallery-list {width:702px}
 }
 
-@media (max-width:340px) {
+@media (max-width:340px) and (not print) {
     html {min-width:320px}
 
     body {min-width:320px}

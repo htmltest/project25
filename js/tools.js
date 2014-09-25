@@ -28,7 +28,6 @@
             $('.top-font-size-2, .top-font-size-3').removeClass('active');
             $('.top-font-size-1').addClass('active');
             resizeTours();
-            resizeContacts();
             e.preventDefault();
         });
 
@@ -38,7 +37,6 @@
             $('.top-font-size-1, .top-font-size-3').removeClass('active');
             $('.top-font-size-2').addClass('active');
             resizeTours();
-            resizeContacts();
             e.preventDefault();
         });
 
@@ -48,7 +46,6 @@
             $('.top-font-size-1, .top-font-size-2').removeClass('active');
             $('.top-font-size-3').addClass('active');
             resizeTours();
-            resizeContacts();
             e.preventDefault();
         });
 
@@ -100,6 +97,8 @@
                 acceptFileTypes: /(\.|\/)(xls|xlsx|doc|docx|pdf)$/i,
                 autoUpload: true
             });
+
+            $('input[name="phone"]').mask('+79999999999');
 
             $('form').each(function() {
                 $(this).validate({
@@ -303,6 +302,8 @@
 
                 $('.window .form-select select').chosen({disable_search: true});
 
+                $('.window input[name="phone"]').mask('+79999999999');
+
                 $('.window form').validate({
                     ignore: [],
                     rules: {
@@ -339,25 +340,25 @@
                 for (var i = 0; i < curPages; i++) {
                     newHTML += '<a href="#"></a>';
                 }
-                $('.events-slider-item-ctrl').html(newHTML);
-                $('.events-slider-item-ctrl').each(function() {
-                    var curIndex = $('.events-slider-item-ctrl').index($(this));
-                    $(this).find('a').eq(curIndex).addClass('active');
-                });
+                $('.events-slider-ctrl').html(newHTML);
+                $('.events-slider-ctrl a:first').addClass('active');
             }
-
-            curSlider.find('ul').width(curSlider.find('li:first').width() * curSlider.find('li').length);
         });
 
-        $('.events-slider').on('click', '.events-slider-item-ctrl a', function(e) {
+        $('.events-slider').on('click', '.events-slider-ctrl a', function(e) {
             var curSlider = $('.events-slider');
 
             if (curSlider.data('disableAnimation')) {
-                var curIndex = $(this).parents().filter('.events-slider-item-ctrl').find('a').index($(this));
+                var curIndex = $('.events-slider-ctrl a').index($(this));
+
+                $('.events-slider-ctrl a').removeClass('active');
+                $(this).addClass('active');
 
                 curSlider.data('disableAnimation', false);
-                curSlider.find('ul').animate({'left': -curIndex * curSlider.find('li:first').width()}, function() {
-                    curSlider.data('disableAnimation', true);
+                curSlider.find('ul li:visible').fadeOut(function() {
+                    curSlider.find('ul li').eq(curIndex).fadeIn(function() {
+                        curSlider.data('disableAnimation', true);
+                    });
                 });
             }
 
@@ -864,31 +865,5 @@
             });
         }
     });
-
-    // выравнивание блоков контактов
-    function resizeContacts() {
-        $('.contacts-col').css({'height': 'auto'});
-        if ($(window).width() > 319) {
-            $('.contacts-cols').each(function() {
-                var curBlock = $(this);
-                curBlock.find('.contacts-col:odd').each(function() {
-                    var curItem   = $(this);
-                    var curIndex  = curBlock.find('.contacts-col').index(curItem);
-                    var prevItem  = curBlock.find('.contacts-col').eq(curIndex - 1);
-
-                    var curHeight = curItem.height();
-
-                    if (prevItem.height() > curHeight) {
-                        curHeight = prevItem.height();
-                    }
-
-                    curItem.css({'height': curHeight});
-                    prevItem.css({'height': curHeight});
-                });
-            });
-        }
-    }
-
-    $(window).bind('load resize', resizeContacts);
 
 })(jQuery);
