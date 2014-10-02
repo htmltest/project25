@@ -483,7 +483,7 @@ h2+.team-row {border:none; padding-top:.8em}
 .tour-info {margin:1.5em 0 0 0; font:.9em/1.3em HelveticaNeueCyrRoman, sans-serif; color:#f6861f}
 .tour-info a {color:#f6861f}
 .tour-info-place {padding:0 0 0 20px; background:url(../images/tour-info-place.png) no-repeat left center}
-.tour-info-length {float:left; padding:0 0 0 20px; background:url(../images/tour-info-length.png) no-repeat left center}
+.tour-info-length {float:left; padding:0 0 0 20px; margin:0 34px 0 0; background:url(../images/tour-info-length.png) no-repeat left center}
 
 .page-404 {width:662px; margin:0 auto -30px auto; padding:40px 0 0 0; position:relative}
 .page-404-img {line-height:0}
@@ -704,7 +704,7 @@ footer {background:#085f3d}
 .article-back-link a:hover {text-decoration:underline}
 .article-back-link a span {font-family:arial, helvetica, sans-serif}
 
-@media (min-width:350px) and (max-width:780px) and (not print) {
+@media all and (not print), (min-width:350px) and (max-width:780px) {
     html {min-width:768px}
 
     body {min-width:768px}
@@ -857,7 +857,7 @@ footer {background:#085f3d}
     .item-gallery-list {width:702px}
 }
 
-@media (max-width:340px) and (not print) {
+@media all and (not print), (max-width:340px) {
     html {min-width:320px}
 
     body {min-width:320px}
