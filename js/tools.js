@@ -2,6 +2,14 @@
 
     $(document).ready(function() {
 
+        if ($('html').hasClass('tablet')) {
+            $('meta[name="viewport"]').attr('content', 'width=768');
+        }
+
+        if ($('html').hasClass('mobile')) {
+            $('meta[name="viewport"]').attr('content', 'width=320');
+        }
+
         $('.up').click(function(e) {
             $.scrollTo(0, 500);
             e.preventDefault();
